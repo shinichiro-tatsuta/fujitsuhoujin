@@ -1,909 +1,312 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>企業PC導入戦略分析レポート：企業規模別アプローチの最適化</title>
-    <style>
-        :root {
-            --primary-color: #1a5276;
-            --secondary-color: #2874a6;
-            --accent-color: #3498db;
-            --light-bg: #f8f9fa;
-            --dark-bg: #2c3e50;
-            --text-color: #333333;
-            --light-text: #ffffff;
-            --border-color: #e0e0e0;
-            --chart-color-1: #3498db;
-            --chart-color-2: #2ecc71;
-            --chart-color-3: #f1c40f;
-            --chart-color-4: #e74c3c;
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--light-bg);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background-color: var(--primary-color);
-            color: var(--light-text);
-            padding: 30px 0;
-            position: relative;
-        }
-        
-        header::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--chart-color-1), var(--chart-color-2), var(--chart-color-3), var(--chart-color-4));
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .header-text {
-            max-width: 70%;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            font-weight: 300;
-            line-height: 1.2;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 80%;
-            font-weight: 300;
-        }
-        
-        .logo {
-            width: 120px;
-            height: 120px;
-            background-color: var(--light-text);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-color);
-            font-weight: bold;
-            font-size: 1.2rem;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        section {
-            padding: 50px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .section-header {
-            margin-bottom: 30px;
-            position: relative;
-        }
-        
-        h2 {
-            font-size: 2rem;
-            font-weight: 400;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-        
-        h3 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin: 30px 0 15px;
-            color: var(--secondary-color);
-        }
-        
-        .section-description {
-            font-size: 1.1rem;
-            color: #666;
-            max-width: 80%;
-            margin-bottom: 20px;
-        }
-        
-        .chart-container {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-            padding: 25px;
-            margin: 30px 0;
-        }
-        
-        .chart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .chart-title {
-            font-size: 1.3rem;
-            font-weight: 500;
-            color: var(--primary-color);
-        }
-        
-        .chart-legend {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .legend-item {
-            display: flex;
-            align-items: center;
-            font-size: 0.9rem;
-            margin-right: 15px;
-        }
-        
-        .legend-color {
-            width: 15px;
-            height: 15px;
-            border-radius: 3px;
-            margin-right: 5px;
-        }
-        
-        .chart {
-            width: 100%;
-            height: 400px;
-            position: relative;
-        }
-        
-        .insights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-        }
-        
-        .insight-card {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-            padding: 25px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .insight-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background-color: var(--accent-color);
-        }
-        
-        .insight-title {
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-        
-        .insight-content {
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-        
-        .highlight {
-            color: var(--secondary-color);
-            font-weight: 500;
-        }
-        
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 30px 0;
-            background-color: white;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .data-table th, .data-table td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .data-table th {
-            background-color: var(--primary-color);
-            color: var(--light-text);
-            font-weight: 500;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
-        }
-        
-        .data-table tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .data-table tr:nth-child(even) {
-            background-color: rgba(0, 0, 0, 0.02);
-        }
-        
-        .strategic-implications {
-            background-color: var(--dark-bg);
-            color: var(--light-text);
-            padding: 50px 0;
-            margin: 50px 0;
-        }
-        
-        .implication-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-        
-        .implication-card {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 25px;
-            transition: transform 0.3s ease;
-        }
-        
-        .implication-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .implication-icon {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: var(--accent-color);
-        }
-        
-        .implication-title {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            font-weight: 500;
-        }
-        
-        .implication-text {
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-        
-        .conclusion {
-            background-color: var(--light-bg);
-            padding: 50px 0;
-            text-align: center;
-        }
-        
-        .conclusion h2 {
-            margin-bottom: 25px;
-        }
-        
-        .conclusion-text {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-        
-        footer {
-            background-color: var(--primary-color);
-            color: var(--light-text);
-            padding: 30px 0;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .sources {
-            margin-top: 20px;
-            font-style: italic;
-            opacity: 0.8;
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .header-text {
-                max-width: 100%;
-                margin-bottom: 20px;
-            }
-            
-            .subtitle, .section-description {
-                max-width: 100%;
-            }
-            
-            .chart {
-                height: 300px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>富士通 法人PC販売マーケティング戦略提案</title>
+  <style>
+    /* 基本レイアウト */
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+    .container {
+      width: 95%;
+      max-width: 1200px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    header {
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #eaeaea;
+    }
+    header h1 {
+      font-size: 2.5em;
+      color: #00529B;
+      margin: 0;
+    }
+    section {
+      margin-top: 30px;
+    }
+    h2 {
+      border-bottom: 2px solid #eaeaea;
+      padding-bottom: 10px;
+      color: #00529B;
+      margin-top: 40px;
+    }
+    h3 {
+      color: #0073e6;
+      margin-top: 30px;
+    }
+    p, li {
+      font-size: 1em;
+      margin: 10px 0;
+      text-align: justify;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    /* 横棒グラフ用スタイル */
+    .chart-container {
+      margin: 20px 0;
+    }
+    .chart-title {
+      text-align: center;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #333;
+    }
+    .bar-chart {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto 20px auto;
+    }
+    .bar {
+      height: 25px;
+      background: #0073e6;
+      margin: 5px 0;
+      text-align: right;
+      line-height: 25px;
+      color: #fff;
+      padding-right: 5px;
+      border-radius: 3px;
+    }
+    .bar-label {
+      font-weight: bold;
+      margin-bottom: 3px;
+    }
+    /* スタイル付きテーブル */
+    .styled-table {
+      border-collapse: collapse;
+      margin: 20px auto;
+      font-size: 0.9em;
+      width: 100%;
+      max-width: 800px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    }
+    .styled-table th, .styled-table td {
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+    .styled-table th {
+      background-color: #00529B;
+      color: #ffffff;
+    }
+    .footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #777;
+      border-top: 2px solid #eaeaea;
+      padding-top: 15px;
+      margin-top: 30px;
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
     <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="header-text">
-                    <h1>企業PC導入戦略分析レポート</h1>
-                    <p class="subtitle">企業規模別のニーズを理解し、最適なIT資産管理戦略を構築するための洞察</p>
-                </div>
-                <div class="logo">
-                    Strategic<br>PC<br>Insights
-                </div>
-            </div>
-        </div>
+      <h1>富士通 法人PC販売マーケティング戦略提案</h1>
     </header>
     
-    <section>
-        <div class="container">
-            <div class="section-header">
-                <h2>エグゼクティブサマリー</h2>
-                <p class="section-description">本レポートでは、企業規模による従業員用PC導入時の重視点の違いを明らかにし、各セグメントに最適なアプローチを提案します。</p>
-            </div>
-            
-            <div class="chart-container">
-                <div class="chart-header">
-                    <div class="chart-title">企業規模別：PC導入時の最重視要素</div>
-                    <div class="chart-legend">
-                        <div class="legend-item">
-                            <div class="legend-color" style="background-color: var(--chart-color-1);"></div>
-                            <span>コスト</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background-color: var(--chart-color-2);"></div>
-                            <span>運用効率</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background-color: var(--chart-color-3);"></div>
-                            <span>パフォーマンス・成果</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background-color: var(--chart-color-4);"></div>
-                            <span>リスク回避</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="chart">
-                    <svg width="100%" height="100%" viewBox="0 0 800 400">
-                        <!-- 軸 -->
-                        <line x1="80" y1="350" x2="750" y2="350" stroke="#333" stroke-width="2" />
-                        <line x1="80" y1="50" x2="80" y2="350" stroke="#333" stroke-width="2" />
-                        
-                        <!-- Y軸ラベル -->
-                        <text x="40" y="350" text-anchor="middle" font-size="12">0%</text>
-                        <text x="40" y="280" text-anchor="middle" font-size="12">10%</text>
-                        <text x="40" y="210" text-anchor="middle" font-size="12">20%</text>
-                        <text x="40" y="140" text-anchor="middle" font-size="12">30%</text>
-                        <text x="40" y="70" text-anchor="middle" font-size="12">40%</text>
-                        
-                        <!-- X軸ラベル -->
-                        <text x="190" y="380" text-anchor="middle" font-size="14">小規模企業</text>
-                        <text x="190" y="395" text-anchor="middle" font-size="12">(30-100人未満)</text>
-                        
-                        <text x="415" y="380" text-anchor="middle" font-size="14">中規模企業</text>
-                        <text x="415" y="395" text-anchor="middle" font-size="12">(100-1000人未満)</text>
-                        
-                        <text x="640" y="380" text-anchor="middle" font-size="14">大規模企業</text>
-                        <text x="640" y="395" text-anchor="middle" font-size="12">(1000人以上)</text>
-                        
-                        <!-- グリッド線 -->
-                        <line x1="80" y1="280" x2="750" y2="280" stroke="#ddd" stroke-width="1" />
-                        <line x1="80" y1="210" x2="750" y2="210" stroke="#ddd" stroke-width="1" />
-                        <line x1="80" y1="140" x2="750" y2="140" stroke="#ddd" stroke-width="1" />
-                        <line x1="80" y1="70" x2="750" y2="70" stroke="#ddd" stroke-width="1" />
-                        
-                        <!-- 小規模企業のデータ -->
-                        <!-- コスト: 39.3% -->
-                        <rect x="130" y="143.5" width="40" height="206.5" fill="var(--chart-color-1)" />
-                        <text x="150" y="133.5" text-anchor="middle" font-size="12" font-weight="bold">39.3%</text>
-                        
-                        <!-- 運用効率: 23.8% -->
-                        <rect x="175" y="211.5" width="40" height="138.5" fill="var(--chart-color-2)" />
-                        <text x="195" y="201.5" text-anchor="middle" font-size="12" font-weight="bold">23.8%</text>
-                        
-                        <!-- パフォーマンス: 22.3% -->
-                        <rect x="220" y="227.5" width="40" height="122.5" fill="var(--chart-color-3)" />
-                        <text x="240" y="217.5" text-anchor="middle" font-size="12" font-weight="bold">22.3%</text>
-                        
-                        <!-- リスク回避: 14.6% -->
-                        <rect x="265" y="277" width="40" height="73" fill="var(--chart-color-4)" />
-                        <text x="285" y="267" text-anchor="middle" font-size="12" font-weight="bold">14.6%</text>
-                        
-                        <!-- 中規模企業のデータ -->
-                        <!-- コスト: 29.1% -->
-                        <rect x="355" y="204.5" width="40" height="145.5" fill="var(--chart-color-1)" />
-                        <text x="375" y="194.5" text-anchor="middle" font-size="12" font-weight="bold">29.1%</text>
-                        
-                        <!-- 運用効率: 21.7% -->
-                        <rect x="400" y="241.5" width="40" height="108.5" fill="var(--chart-color-2)" />
-                        <text x="420" y="231.5" text-anchor="middle" font-size="12" font-weight="bold">21.7%</text>
-                        
-                        <!-- パフォーマンス: 31.4% -->
-                        <rect x="445" y="193" width="40" height="157" fill="var(--chart-color-3)" />
-                        <text x="465" y="183" text-anchor="middle" font-size="12" font-weight="bold">31.4%</text>
-                        
-                        <!-- リスク回避: 17.8% -->
-                        <rect x="490" y="261" width="40" height="89" fill="var(--chart-color-4)" />
-                        <text x="510" y="251" text-anchor="middle" font-size="12" font-weight="bold">17.8%</text>
-                        
-                        <!-- 大規模企業のデータ -->
-                        <!-- コスト: 24.3% -->
-                        <rect x="580" y="228.5" width="40" height="121.5" fill="var(--chart-color-1)" />
-                        <text x="600" y="218.5" text-anchor="middle" font-size="12" font-weight="bold">24.3%</text>
-                        
-                        <!-- 運用効率: 20.7% -->
-                        <rect x="625" y="246.5" width="40" height="103.5" fill="var(--chart-color-2)" />
-                        <text x="645" y="236.5" text-anchor="middle" font-size="12" font-weight="bold">20.7%</text>
-                        
-                        <!-- パフォーマンス: 29.8% -->
-                        <rect x="670" y="201" width="40" height="149" fill="var(--chart-color-3)" />
-                        <text x="690" y="191" text-anchor="middle" font-size="12" font-weight="bold">29.8%</text>
-                        
-                        <!-- リスク回避: 25.2% -->
-                        <rect x="715" y="224" width="40" height="126" fill="var(--chart-color-4)" />
-                        <text x="735" y="214" text-anchor="middle" font-size="12" font-weight="bold">25.2%</text>
-                    </svg>
-                </div>
-                
-                <div class="chart-legend" style="margin-top: 20px; justify-content: center;">
-                    <div class="legend-item">
-                        <div class="legend-color" style="background-color: var(--chart-color-1);"></div>
-                        <span>小規模企業 (30-100人未満)</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background-color: var(--chart-color-2);"></div>
-                        <span>中規模企業 (100-1000人未満)</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background-color: var(--chart-color-3);"></div>
-                        <span>大規模企業 (1000人以上)</span>
-                    </div>
-                </div>
-            </div>
-            
-            <p style="margin: 30px 0;">調査データから見えてくるのは、企業規模が大きくなるほど<span class="highlight">メーカー直接取引の割合が増加</span>する傾向です。大企業では46.6%がメーカーとの直接取引を行っており、小規模企業の約2倍となっています。また、大企業ではリース・レンタル会社経由の利用も23.6%と比較的高い水準にあります。一方、小規模企業では「その他」の調達経路が43.2%と突出して高く、調達先の多様化や柔軟性が見られます。</p>
-            
-            <div class="insights-grid">
-                <div class="insight-card">
-                    <h3 class="insight-title">小規模企業の調達特性</h3>
-                    <p class="insight-content">
-                        小規模企業は<span class="highlight">多様な調達チャネルを活用</span>する傾向があり、「その他」の経路が43.2%と突出しています。メーカー直接取引は24.3%と比較的低く、代理店経由(28.6%)の方が若干高い傾向が見られます。これは調達ロットの小ささや、価格交渉力の制約による影響と考えられます。
-                    </p>
-                </div>
-                
-                <div class="insight-card">
-                    <h3 class="insight-title">中規模企業の調達戦略</h3>
-                    <p class="insight-content">
-                        中規模企業ではメーカー直接取引(40.5%)と代理店経由(40.1%)が<span class="highlight">ほぼ同等の割合</span>で利用されており、調達チャネルのバランスが取れています。「その他」の経路も26.5%あり、状況に応じた柔軟な調達戦略を取っている可能性があります。
-                    </p>
-                </div>
-                
-                <div class="insight-card">
-                    <h3 class="insight-title">大規模企業の調達アプローチ</h3>
-                    <p class="insight-content">
-                        大規模企業は<span class="highlight">メーカー直接取引が46.6%</span>と半数近くを占め、大量調達のメリットを活かした直接取引を重視しています。リース・レンタル会社経由の利用も23.6%と他の規模よりも高く、資産管理や定期的な更新を計画的に行っている傾向が見られます。
-                    </p>
-                </div>
-            </div>
+    <!-- 分析レポート全文（文章内容を削ることなく掲載） -->
+    <section id="analysis">
+      <h2>従業員規模と主要重視点によるクロス集計結果の分析</h2>
+      <p>
+        アップロードいただいたクロス集計結果（従業員規模別 × Q4重視点別）を確認し、企業規模による傾向および重視点セグメントによる違いを整理しました。以下では、主な項目についてデータを抽出しグラフや表で可視化し、分析結果をまとめます。
+      </p>
+      
+      <h3>企業規模別の主要重視点（Q4）の分布</h3>
+      <p>
+        まず、Q4で尋ねられた「従業員用PC導入時に最も重視する要素」について、企業規模別の選択肢分布を示します（選択肢は「コスト」「運用効率」「パフォーマンス・成果」「リスク回避」の4つ）。
+      </p>
+      <!-- サンプル横棒グラフ（コードのみで実装） -->
+      <div class="chart-container">
+        <div class="chart-title">【従業員30～100人規模】PC導入時の最重視要素</div>
+        <div class="bar-label">コスト：39.3%</div>
+        <div class="bar-chart">
+          <div class="bar" style="width: 39.3%;">39.3%</div>
         </div>
+        <div class="bar-label">パフォーマンス・成果：31.4%</div>
+        <div class="bar-chart">
+          <div class="bar" style="width: 31.4%;">31.4%</div>
+        </div>
+        <div class="bar-label">リスク回避：14.6%</div>
+        <div class="bar-chart">
+          <div class="bar" style="width: 14.6%;">14.6%</div>
+        </div>
+        <div class="bar-label">運用効率：14.7%</div>
+        <div class="bar-chart">
+          <div class="bar" style="width: 14.7%;">14.7%</div>
+        </div>
+      </div>
+      <p>
+        上図のとおり、小規模企業では「コスト」を最重視する割合が突出しており、大企業では「リスク回避」の重視が相対的に高くなっています。また、中堅企業では「パフォーマンス・成果」が最も重視されています。
+      </p>
+      
+      <h3>従業員規模別のパソコン調達経路の違い</h3>
+      <p>
+        次に、PCの調達経路に関する設問（複数回答可）について、企業規模別の結果を見てみます。主要な調達チャネルは、「メーカーやベンダーとの直接取引」「販売代理店経由」「家電量販店の法人営業」「通信キャリア経由」「リース・レンタル会社経由」「ECサイト・オンライン」「その他」となっています。
+      </p>
+      <!-- サンプルテーブル -->
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>調達経路</th>
+            <th>小規模（30～100人）</th>
+            <th>中堅（100～1000人）</th>
+            <th>大企業（1000人以上）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>メーカー直販</td>
+            <td>24.3%</td>
+            <td>40.5%</td>
+            <td>46.6%</td>
+          </tr>
+          <tr>
+            <td>その他</td>
+            <td>43.2%</td>
+            <td>26.5%</td>
+            <td>23.0%</td>
+          </tr>
+          <tr>
+            <td>リース・レンタル</td>
+            <td>11.2%</td>
+            <td>15.5%</td>
+            <td>23.6%</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        この表から、小規模企業は「その他」の調達経路が高い一方、大企業はメーカー直販やリース・レンタルの利用率が高い傾向が読み取れます。
+      </p>
+      
+      <h3>従業員規模別のPC形態利用状況の違い</h3>
+      <p>
+        続いて、社内で利用するPCの形態（デスクトップ中心、据え置きノート型中心、軽量モバイル中心など）について比較しました。以下の表は、各規模ごとの選択割合を示しています。
+      </p>
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>企業規模</th>
+            <th>デスクトップ中心</th>
+            <th>据え置きノート型中心</th>
+            <th>軽量モバイル中心</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>小規模（30～100人）</td>
+            <td>33.5%</td>
+            <td>24.3%</td>
+            <td>4.4%</td>
+          </tr>
+          <tr>
+            <td>中堅（100～1000人）</td>
+            <td>19.7%</td>
+            <td>21.4%</td>
+            <td>11.7%</td>
+          </tr>
+          <tr>
+            <td>大企業（1000人以上）</td>
+            <td>14.2%</td>
+            <td>30.4%</td>
+            <td>12.6%</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        表からは、小規模企業はデスクトップ中心、大企業はノート型や軽量モバイル中心へシフトしていることが分かります。
+      </p>
+      
+      <h3>重視点セグメント別の評価傾向</h3>
+      <p>
+        Q3では各要素を「0（全く重視しない）～10（非常に重視する）」で評価しました。例えば、初期導入費用や運用コスト（コスト要素）では、全体では10点回答が13.5%ですが、コスト重視層では21.5%に達しています。また、リスク回避の評価では、該当層で高いスコアが付けられていることが示されています。
+      </p>
+      <div class="chart-container">
+        <div class="chart-title">【評価スコア（10点）割合の例】</div>
+        <div class="bar-label">コスト（全体）：13.5%　→　コスト重視層：21.5%</div>
+        <div class="bar-chart">
+          <div class="bar" style="width: 21.5%; background: #e67e22;">21.5%</div>
+        </div>
+        <div class="bar-label">リスク回避（全体）：11.5%　→　リスク回避層：13.3%</div>
+        <div class="bar-chart">
+          <div class="bar" style="width: 13.3%; background: #27ae60;">13.3%</div>
+        </div>
+      </div>
     </section>
     
-    <section>
-        <div class="container">
-            <div class="section-header">
-                <h2>重視点セグメント別の評価傾向分析</h2>
-                <p class="section-description">各企業が最重視する要素によって、関連指標に対する評価にも明確な差異が見られます。</p>
-            </div>
-            
-            <div class="chart-container">
-                <div class="chart-header">
-                    <div class="chart-title">セグメント別：コスト要素への重視度（初期導入費用の安さ）</div>
-                </div>
-                
-                <div class="chart">
-                    <svg width="100%" height="100%" viewBox="0 0 800 400">
-                        <!-- 軸 -->
-                        <line x1="100" y1="350" x2="750" y2="350" stroke="#333" stroke-width="2" />
-                        <line x1="100" y1="50" x2="100" y2="350" stroke="#333" stroke-width="2" />
-                        
-                        <!-- Y軸ラベル -->
-                        <text x="80" y="350" text-anchor="end" font-size="12">0%</text>
-                        <text x="80" y="300" text-anchor="end" font-size="12">5%</text>
-                        <text x="80" y="250" text-anchor="end" font-size="12">10%</text>
-                        <text x="80" y="200" text-anchor="end" font-size="12">15%</text>
-                        <text x="80" y="150" text-anchor="end" font-size="12">20%</text>
-                        <text x="80" y="100" text-anchor="end" font-size="12">25%</text>
-                        
-                        <!-- グリッド線 -->
-                        <line x1="100" y1="300" x2="750" y2="300" stroke="#ddd" stroke-width="1" />
-                        <line x1="100" y1="250" x2="750" y2="250" stroke="#ddd" stroke-width="1" />
-                        <line x1="100" y1="200" x2="750" y2="200" stroke="#ddd" stroke-width="1" />
-                        <line x1="100" y1="150" x2="750" y2="150" stroke="#ddd" stroke-width="1" />
-                        <line x1="100" y1="100" x2="750" y2="100" stroke="#ddd" stroke-width="1" />
-                        
-                        <!-- X軸ラベル -->
-                        <text x="130" y="370" text-anchor="middle" font-size="12">0</text>
-                        <text x="160" y="370" text-anchor="middle" font-size="12">1</text>
-                        <text x="190" y="370" text-anchor="middle" font-size="12">2</text>
-                        <text x="220" y="370" text-anchor="middle" font-size="12">3</text>
-                        <text x="250" y="370" text-anchor="middle" font-size="12">4</text>
-                        <text x="280" y="370" text-anchor="middle" font-size="12">5</text>
-                        <text x="310" y="370" text-anchor="middle" font-size="12">6</text>
-                        <text x="340" y="370" text-anchor="middle" font-size="12">7</text>
-                        <text x="370" y="370" text-anchor="middle" font-size="12">8</text>
-                        <text x="400" y="370" text-anchor="middle" font-size="12">9</text>
-                        <text x="430" y="370" text-anchor="middle" font-size="12">10</text>
-                        <text x="280" y="390" text-anchor="middle" font-size="12">全く重視しない ← 評価スコア → 非常に重視する</text>
-                        
-                        <!-- コスト重視グループの線 -->
-                        <polyline
-                            points="130,346 160,350 190,347 220,344 250,332 280,309 310,320 340,245 370,245 400,323 430,240"
-                            fill="none"
-                            stroke="var(--chart-color-1)"
-                            stroke-width="3"
-                            stroke-dasharray="none"
-                        />
-                        
-                        <!-- 運用効率重視グループの線 -->
-                        <polyline
-                            points="130,344 160,347 190,334 220,334 250,334 280,300 310,311 340,258 370,228 400,305 430,320"
-                            fill="none"
-                            stroke="var(--chart-color-2)"
-                            stroke-width="3"
-                            stroke-dasharray="5,3"
-                        />
-                        
-                        <!-- パフォーマンス重視グループの線 -->
-                        <polyline
-                            points="130,346 160,348 190,337 220,331 250,335 280,310 310,298 340,248 370,263 400,282 430,315"
-                            fill="none"
-                            stroke="var(--chart-color-3)"
-                            stroke-width="3"
-                            stroke-dasharray="10,3"
-                        />
-                        
-                        <!-- リスク回避重視グループの線 -->
-                        <polyline
-                            points="130,344 160,347 190,347 220,338 250,320 280,303 310,280 340,284 370,237 400,315 430,311"
-                            fill="none"
-                            stroke="var(--chart-color-4)"
-                            stroke-width="3"
-                            stroke-dasharray="5,5"
-                        />
-                        
-                        <!-- ポイントマーカー (最も強調したいポイント) -->
-                        <circle cx="430" cy="240" r="6" fill="var(--chart-color-1)" />
-                        <text x="430" y="230" text-anchor="middle" font-size="12" font-weight="bold">21.5%</text>
-                        
-                        <circle cx="370" cy="228" r="4" fill="var(--chart-color-2)" />
-                        <circle cx="370" cy="263" r="4" fill="var(--chart-color-3)" />
-                        <circle cx="370" cy="237" r="4" fill="var(--chart-color-4)" />
-                    </svg>
-                </div>
-                
+    <!-- 戦略提案全文（文章内容を削らずに） -->
+    <section id="strategy">
+      <h2>富士通 法人PC販売マーケティング戦略の多角的最適化提案</h2>
+      
+      <h3>1. ターゲットセグメントの深掘り</h3>
+      <p>
+        調査データより、企業のPC導入方針は4つのDNAに分類できます。以下に各セグメントの特徴と課題を示します。
+      </p>
+      <ul>
+        <li>
+          <strong>コスト重視セグメント:</strong> 中小企業に多く（従業員30～100人未満では約39%が該当）、初期導入費用やTCO削減を最優先します。限られたIT予算内で最大の効果を求めるため、安価な製品やリース活用に積極的。主な課題は予算承認の厳格なチェックで、CFOや経営陣へのROI試算が鍵となります。
+        </li>
+        <li>
+          <strong>運用効率重視セグメント:</strong> 情報システム部門主導の中堅以上企業に多く、PCの信頼性や保守サポート、初期設定の容易さが重要。現場のIT部門の負担軽減が求められ、人的リソース不足が課題となります。
+        </li>
+        <li>
+          <strong>パフォーマンス・成果重視セグメント:</strong> DX推進や業務効率向上を狙う大企業・成長企業で、高性能な端末や最新モデルへの更新を重視。投資対効果の可視化が必要となるため、事業部門やDX推進担当役員の説得が求められます。
+        </li>
+        <li>
+          <strong>リスク回避セグメント:</strong> 主に大企業で、情報漏洩や不正アクセス防止などセキュリティ対策を最優先。厳格な社内規定とコンプライアンスにより、新規導入時の認証システムや暗号化機能の確認、国内サポート体制の充実が不可欠です。
+        </li>
+      </ul>
+      
+      <h3>意思決定フローと重視ポイント</h3>
+      <p>
+        法人PC導入の稟議フローでは、各セグメントごとに財務部門、現場IT部門、ユーザー部門、セキュリティ部門が関与し、重視するポイントが異なります。たとえば、コスト重視層では「価格・コスト削減」が中心、運用効率重視層では「信頼性・保守サポート」、パフォーマンス重視層では「性能向上による事業メリット」、リスク回避層では「安全基準遵守」が問われます。
+      </p>
+      
+      <h3>2. 販売パートナー戦略の補強</h3>
+      <p>
+        販売パートナーの協力を得るため、魅力的なインセンティブ設計（売上目標達成時の報奨金制度、マージン優遇策など）や、パートナーポータル、販売支援ツール、定期的な表彰制度、トレーニング、認定プログラムを実施します。さらに、企業DNA別のセールスシナリオを用意することで、各ターゲット企業に最適な提案が可能となります。
+      </p>
+      
+      <h3>3. マーケティング施策の具体化</h3>
+      <p>
+        各ターゲットセグメントに対し、オンライン施策（デジタル広告、SEO、SNS、ABM）とオフライン施策（業界セミナー、展示会、ウェビナー、イベント）を組み合わせ、リード獲得とコンバージョン最大化を狙います。たとえば、コスト重視層向けには検索連動型広告や比較サイト、パフォーマンス重視層にはLinkedInなどのビジネスSNSでの情報発信が効果的です。
+      </p>
+      
+      <h3>4. データ活用と調査結果の反映</h3>
+      <p>
+        調査データ（読売広告社 YOMIKO 提供）を定量的根拠として、各セグメントの購買チャネルや評価傾向を把握。たとえば、コスト重視層はメーカー直接取引よりも「その他」の調達ルートを利用する傾向が高く、パフォーマンス重視層はメーカー直販の比率が高いことが示されています。各段階での課題（予算確保、現場工数、合意形成、セキュリティ要件）に対して、ROIシミュレーション、実証データ、他社事例紹介などの解決策を用意します。
+      </p>
+      
+      <h3>5. 競合分析の視点</h3>
+      <p>
+        NEC（レノボ）、Dynabook、HP、Dellなど主要競合のマーケティング施策、販売チャネル、価格戦略を分析。富士通は、長年の国内実績、「Made in Japan」のブランド、充実したサポート体制などを強みとし、競合他社に対抗するための差別化戦略を策定します。
+      </p>
+      
+      <h3>6. KPIとPDCAフレームワーク</h3>
+      <p>
+        提案施策の効果測定として、リード獲得数、MQL/SQL転換率、商談獲得数・受注率、パートナー経由売上貢献度、コンテンツエンゲージメント、Web/SNS指標、マーケティングROIなどをKPIに設定。これらの指標を基にPDCAサイクルを運用し、施策の最適化と継続的改善を図ります。具体的には、Plan（計画）・Do（実行）・Check（評価）・Act（改善）の各フェーズを速やかに回し、成果の最大化を目指します。
+      </p>
+      <p>
+        以上、多角的な分析に基づいた戦略提案により、各セグメントのニーズに沿ったチャネル戦略、コンテンツ戦略、パートナー戦略を一貫して実行することで、富士通の法人PCビジネスの競争力強化と売上拡大を実現します。今後は、データに裏付けられたマーケティング施策を着実に展開し、PDCAサイクルによる継続的なブラッシュアップで市場における存在感をさらに高めていきましょう。
+      </p>
+      <p>
+        参考文献・データ出典: 調査データ（読売広告社 YOMIKO 提供）、業界レポート、ニュースリリース等。
+      </p>
+    </section>
     
-    <section>
-        <div class="container">
-            <div class="section-header">
-                <h2>PC形態選択の企業規模別分析</h2>
-                <p class="section-description">企業の規模によって、社内で利用するPCの形態にも明確な傾向の違いが見られます。</p>
-            </div>
-            
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>企業規模</th>
-                        <th>デスクトップ中心</th>
-                        <th>デスクトップ＋据置ノート併用</th>
-                        <th>据置ノート中心</th>
-                        <th>デスクトップ＋軽量モバイル</th>
-                        <th>軽量モバイル中心</th>
-                        <th>その他</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>30～100人未満 (小規模)</td>
-                        <td><strong>33.5%</strong></td>
-                        <td>32.5%</td>
-                        <td>24.3%</td>
-                        <td>5.3%</td>
-                        <td>4.4%</td>
-                        <td>0.0%</td>
-                    </tr>
-                    <tr>
-                        <td>100～1000人未満 (中規模)</td>
-                        <td>19.7%</td>
-                        <td><strong>33.7%</strong></td>
-                        <td>21.4%</td>
-                        <td>13.3%</td>
-                        <td>11.7%</td>
-                        <td>0.3%</td>
-                    </tr>
-                    <tr>
-                        <td>1000人以上 (大規模)</td>
-                        <td>14.2%</td>
-                        <td>31.1%</td>
-                        <td><strong>30.4%</strong></td>
-                        <td>11.7%</td>
-                        <td>12.6%</td>
-                        <td>0.0%</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <div class="chart-container">
-                <div class="chart-header">
-                    <div class="chart-title">企業規模別：PC形態の利用状況比較</div>
-                </div>
-                
-                <div class="chart">
-                    <svg width="100%" height="100%" viewBox="0 0 800 400">
-                        <!-- 軸 -->
-                        <line x1="100" y1="350" x2="750" y2="350" stroke="#333" stroke-width="2" />
-                        <line x1="100" y1="50" x2="100" y2="350" stroke="#333" stroke-width="2" />
-                        
-                        <!-- Y軸ラベル -->
-                        <text x="80" y="350" text-anchor="end" font-size="12">0%</text>
-                        <text x="80" y="300" text-anchor="end" font-size="12">10%</text>
-                        <text x="80" y="250" text-anchor="end" font-size="12">20%</text>
-                        <text x="80" y="200" text-anchor="end" font-size="12">30%</text>
-                        <text x="80" y="150" text-anchor="end" font-size="12">40%</text>
-                        
-                        <!-- グリッド線 -->
-                        <line x1="100" y1="300" x2="750" y2="300" stroke="#ddd" stroke-width="1" />
-                        <line x1="100" y1="250" x2="750" y2="250" stroke="#ddd" stroke-width="1" />
-                        <line x1="100" y1="200" x2="750" y2="200" stroke="#ddd" stroke-width="1" />
-                        <line x1="100" y1="150" x2="750" y2="150" stroke="#ddd" stroke-width="1" />
-                        <line x1="100" y1="100" x2="750" y2="100" stroke="#ddd" stroke-width="1" />
-                        
-                        <!-- 小規模企業の棒グラフ (x=150) -->
-                        <rect x="130" y="165" width="30" height="185" fill="var(--chart-color-1)" />
-                        <rect x="280" y="175" width="30" height="175" fill="var(--chart-color-1)" />
-                        <rect x="430" y="228" width="30" height="122" fill="var(--chart-color-1)" />
-                        <rect x="580" y="324" width="30" height="26" fill="var(--chart-color-1)" />
-                        <rect x="730" y="328" width="30" height="22" fill="var(--chart-color-1)" />
-                        
-                        <!-- 中規模企業の棒グラフ (x=190) -->
-                        <rect x="170" y="251" width="30" height="99" fill="var(--chart-color-2)" />
-                        <rect x="320" y="182" width="30" height="168" fill="var(--chart-color-2)" />
-                        <rect x="470" y="243" width="30" height="107" fill="var(--chart-color-2)" />
-                        <rect x="620" y="284" width="30" height="66" fill="var(--chart-color-2)" />
-                        <rect x="770" y="292" width="30" height="58" fill="var(--chart-color-2)" />
-                        
-                        <!-- 大規模企業の棒グラフ (x=230) -->
-                        <rect x="210" y="279" width="30" height="71" fill="var(--chart-color-3)" />
-                        <rect x="360" y="195" width="30" height="155" fill="var(--chart-color-3)" />
-                        <rect x="510" y="198" width="30" height="152" fill="var(--chart-color-3)" />
-                        <rect x="660" y="292" width="30" height="58" fill="var(--chart-color-3)" />
-                        <rect x="810" y="287" width="30" height="63" fill="var(--chart-color-3)" />
-                        
-                        <!-- カテゴリラベル -->
-                        <text x="170" y="380" text-anchor="middle" font-size="12">デスクトップ中心</text>
-                        <text x="320" y="380" text-anchor="middle" font-size="12">デスクトップ＋据置ノート</text>
-                        <text x="470" y="380" text-anchor="middle" font-size="12">据置ノート中心</text>
-                        <text x="620" y="380" text-anchor="middle" font-size="12">デスクトップ＋軽量PC</text>
-                        <text x="770" y="380" text-anchor="middle" font-size="12">軽量モバイル中心</text>
-                        
-                        <!-- データラベル（小規模企業） -->
-                        <text x="145" y="160" text-anchor="middle" font-size="11" font-weight="bold">33.5%</text>
-                        <text x="295" y="170" text-anchor="middle" font-size="11" font-weight="bold">32.5%</text>
-                        <text x="445" y="223" text-anchor="middle" font-size="11" font-weight="bold">24.3%</text>
-                        <text x="595" y="319" text-anchor="middle" font-size="11" font-weight="bold">5.3%</text>
-                        <text x="745" y="323" text-anchor="middle" font-size="11" font-weight="bold">4.4%</text>
-                        
-                        <!-- データラベル（中規模企業） -->
-                        <text x="185" y="246" text-anchor="middle" font-size="11" font-weight="bold">19.7%</text>
-                        <text x="335" y="177" text-anchor="middle" font-size="11" font-weight="bold">33.7%</text>
-                        <text x="485" y="238" text-anchor="middle" font-size="11" font-weight="bold">21.4%</text>
-                        <text x="635" y="279" text-anchor="middle" font-size="11" font-weight="bold">13.3%</text>
-                        <text x="785" y="287" text-anchor="middle" font-size="11" font-weight="bold">11.7%</text>
-                        
-                        <!-- データラベル（大規模企業） -->
-                        <text x="225" y="274" text-anchor="middle" font-size="11" font-weight="bold">14.2%</text>
-                        <text x="375" y="190" text-anchor="middle" font-size="11" font-weight="bold">31.1%</text>
-                        <text x="525" y="193" text-anchor="middle" font-size="11" font-weight="bold">30.4%</text>
-                        <text x="675" y="287" text-anchor="middle" font-size="11" font-weight="bold">11.7%</text>
-                        <text x="825" y="282" text-anchor="middle" font-size="11" font-weight="bold">12.6%</text>
-                    </svg>
-                </div>
-                
-                <div class="chart-legend" style="margin-top: 20px; justify-content: center;">
-                    <div class="legend-item">
-                        <div class="legend-color" style="background-color: var(--chart-color-1);"></div>
-                        <span>小規模企業 (30-100人未満)</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background-color: var(--chart-color-2);"></div>
-                        <span>中規模企業 (100-1000人未満)</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background-color: var(--chart-color-3);"></div>
-                        <span>大規模企業 (1000人以上)</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="insights-grid">
-                <div class="insight-card">
-                    <h3 class="insight-title">小規模企業のデバイス選択</h3>
-                    <p class="insight-content">
-                        小規模企業では<span class="highlight">デスクトップPC中心の環境が33.5%</span>と最も高く、据え置き型の固定デバイスへの依存度が高いことがわかります。軽量モバイルPCの導入は合計9.7%と低水準にとどまり、コスト重視や業務の固定性が影響していると考えられます。
-                    </p>
-                </div>
-                
-                <div class="insight-card">
-                    <h3 class="insight-title">中規模企業の移行過程</h3>
-                    <p class="insight-content">
-                        中規模企業では<span class="highlight">デスクトップと据置ノートの併用(33.7%)</span>が最多となっており、移行過程にある企業が多いと推測されます。また、小規模企業と比較してモバイルデバイスの利用率が25.0%と高まっていることから、働き方の多様化が進んでいることがうかがえます。
-                    </p>
-                </div>
-                
-                <div class="insight-card">
-                    <h3 class="insight-title">大規模企業のモバイル化</h3>
-                    <p class="insight-content">
-                        大規模企業では<span class="highlight">据置ノート中心(30.4%)とモバイル活用(24.3%)</span>の比率が高く、従業員の働き方の柔軟性を重視する傾向が見られます。デスクトップ中心は14.2%と小規模企業の半分以下にとどまり、モビリティ重視の環境構築が進んでいます。
-                    </p>
-                </div>
-            </div>
-            
-            <div class="chart-container">
-                <div class="chart-header">
-                    <div class="chart-title">企業規模別：PC調達経路の利用率比較</div>
-                </div>
-                
-                <div class="chart">
-                    <svg width="100%" height="100%" viewBox="0 0 800 400">
-                        <!-- 軸 -->
-                        <line x1="150" y1="350" x2="750" y2="350" stroke="#333" stroke-width="2" />
-                        <line x1="150" y1="50" x2="150" y2="350" stroke="#333" stroke-width="2" />
-                        
-                        <!-- Y軸ラベル -->
-                        <text x="75" y="350" text-anchor="end" font-size="12">0%</text>
-                        <text x="75" y="290" text-anchor="end" font-size="12">10%</text>
-                        <text x="75" y="230" text-anchor="end" font-size="12">20%</text>
-                        <text x="75" y="170" text-anchor="end" font-size="12">30%</text>
-                        <text x="75" y="110" text-anchor="end" font-size="12">40%</text>
-                        <text x="75" y="50" text-anchor="end" font-size="12">50%</text>
-                        
-                        <!-- グリッド線 -->
-                        <line x1="150" y1="290" x2="750" y2="290" stroke="#ddd" stroke-width="1" />
-                        <line x1="150" y1="230" x2="750" y2="230" stroke="#ddd" stroke-width="1" />
-                        <line x1="150" y1="170" x2="750" y2="170" stroke="#ddd" stroke-width="1" />
-                        <line x1="150" y1="110" x2="750" y2="110" stroke="#ddd" stroke-width="1" />
-                        <line x1="150" y1="50" x2="750" y2="50" stroke="#ddd" stroke-width="1" />
-                        
-                        <!-- 調達経路のラベル -->
-                        <text x="150" y="380" text-anchor="middle" font-size="12" transform="rotate(45 150,380)">メーカー直接取引</text>
-                        <text x="250" y="380" text-anchor="middle" font-size="12" transform="rotate(45 250,380)">販売代理店経由</text>
-                        <text x="350" y="380" text-anchor="middle" font-size="12" transform="rotate(45 350,380)">家電量販店法人</text>
-                        <text x="450" y="380" text-anchor="middle" font-size="12" transform="rotate(45 450,380)">通信キャリア経由</text>
-                        <text x="550" y="380" text-anchor="middle" font-size="12" transform="rotate(45 550,380)">リース・レンタル</text>
-                        <text x="650" y="380" text-anchor="middle" font-size="12" transform="rotate(45 650,380)">EC・オンライン</text>
-                        <text x="750" y="380" text-anchor="middle" font-size="12" transform="rotate(45 750,380)">その他</text>
-                        
-                        <!-- 小規模企業の線 -->
-                        <polyline 
-                            points="150,282.9 250,265.6 350,333.8 450,343.8 550,322.4 650,319.8 750,160.4" 
-                            fill="none" 
-                            stroke="var(--chart-color-1)" 
-                            stroke-width="3"
-                        />
-                        
-                        <!-- 中規模企業の線 -->
-                        <polyline 
-                            points="150,187.5 250,190 350,312.4 450,336.6 550,317.5 650,326 750,273.5" 
-                            fill="none" 
-                            stroke="var(--chart-color-2)" 
-                            stroke-width="3"
-                        />
-                        
-                        <!-- 大規模企業の線 -->
-                        <polyline 
-                            points="150,167 250,219 350,312.5 450,312.3 550,218.6 650,318.3 750,280" 
-                            fill="none" 
-                            stroke="var(--chart-color-3)" 
-                            stroke-width="3"
-                        />
-                        
-                        <!-- 各ポイントにマーカーを追加 -->
-                        <!-- 小規模企業 -->
-                        <circle cx="150" cy="282.9" r="5" fill="var(--chart-color-1)" />
-                        <text x="150" y="267.9" text-anchor="middle" font-size="12">24.3%</text>
-                        
-                        <circle cx="250" cy="265.6" r="5" fill="var(--chart-color-1)" />
-                        <text x="250" y="250.6" text-anchor="middle" font-size="12">28.6%</text>
-                        
-                        <circle cx="350" cy="333.8" r="5" fill="var(--chart-color-1)" />
-                        <text x="350" y="318.8" text-anchor="middle" font-size="12">8.3%</text>
-                        
-                        <circle cx="450" cy="343.8" r="5" fill="var(--chart-color-1)" />
-                        <text x="450" y="328.8" text-anchor="middle" font-size="12">4.4%</text>
-                        
-                        <circle cx="550" cy="322.4" r="5" fill="var(--chart-color-1)" />
-                        <text x="550" y="307.4" text-anchor="middle" font-size="12">11.2%</text>
-                        
-                        <circle cx="650" cy="319.8" r="5" fill="var(--chart-color-1)" />
-                        <text x="650" y="304.8" text-anchor="middle" font-size="12">12.1%</text>
-                        
-                        <circle cx="750" cy="160.4" r="5" fill="var(--chart-color-1)" />
-                        <text x="750" y="145.4" text-anchor="middle" font-size="12">43.2%</text>
-                        
-                        <!-- 中規模企業 -->
-                        <circle cx="150" cy="187.5" r="5" fill="var(--chart-color-2)" />
-                        <text x="150" y="172.5" text-anchor="middle" font-size="12">40.5%</text>
-                        
-                        <circle cx="250" cy="190" r="5" fill="var(--chart-color-2)" />
-                        <text x="250" y="175" text-anchor="middle" font-size="12">40.1%</text>
-                        
-                        <circle cx="350" cy="312.4" r="5" fill="var(--chart-color-2)" />
-                        <text x="350" y="297.4" text-anchor="middle" font-size="12">15.2%</text>
-                        
-                        <circle cx="450" cy="336.6" r="5" fill="var(--chart-color-2)" />
-                        <text x="450" y="321.6" text-anchor="middle" font-size="12">7.8%</text>
-                        
-                        <circle cx="550" cy="317.5" r="5" fill="var(--chart-color-2)" />
-                        <text x="550" y="302.5" text-anchor="middle" font-size="12">15.5%</text>
-                        
-                        <circle cx="650" cy="326" r="5" fill="var(--chart-color-2)" />
-                        <text x="650" y="311" text-anchor="middle" font-size="12">11.0%</text>
-                        
-                        <circle cx="750" cy="273.5" r="5" fill="var(--chart-color-2)" />
-                        <text x="750" y="258.5" text-anchor="middle" font-size="12">26.5%</text>
-                        
-                        <!-- 大規模企業 -->
-                        <circle cx="150" cy="167" r="5" fill="var(--chart-color-3)" />
-                        <text x="150" y="152" text-anchor="middle" font-size="12">46.6%</text>
-                        
-                        <circle cx="250" cy="219" r="5" fill="var(--chart-color-3)" />
-                        <text x="250" y="204" text-anchor="middle" font-size="12">36.2%</text>
-                        
-                        <circle cx="350" cy="312.5" r="5" fill="var(--chart-color-3)" />
-                        <text x="350" y="297.5" text-anchor="middle" font-size="12">15.5%</text>
-                        
-                        <circle cx="450" cy="312.3" r="5" fill="var(--chart-color-3)" />
-                        <text x="450" y="297.3" text-anchor="middle" font-size="12">12.3%</text>
-                        
-                        <circle cx="550" cy="218.6" r="5" fill="var(--chart-color-3)" />
-                        <text x="550" y="203.6" text-anchor="middle" font-size="12">23.6%</text>
-                        
-                        <circle cx="650" cy="318.3" r="5" fill="var(--chart-color-3)" />
-                        <text x="650" y="303.3" text-anchor="middle" font-size="12">13.9%</text>
-                        
-                        <circle cx="750" cy="280" r="5" fill="var(--chart-color-3)" />
-                        <text x="750" y="265" text-anchor="middle" font-size="12">23.0%</text>
+    <div class="footer">
+      <p>&copy; 2025 富士通法人PC販売マーケティング戦略提案</p>
+    </div>
+  </div>
+</body>
+</html>
