@@ -1,555 +1,90 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>企業PC導入戦略分析レポート：企業規模別アプローチの最適化</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        :root {
-            --primary-color: #1a5276;
-            --secondary-color: #2874a6;
-            --accent-color: #3498db;
-            --light-bg: #f8f9fa;
-            --dark-bg: #2c3e50;
-            --text-color: #333333;
-            --light-text: #ffffff;
-            --border-color: #e0e0e0;
-            --chart-color-1: #3498db;
-            --chart-color-2: #2ecc71;
-            --chart-color-3: #f1c40f;
-            --chart-color-4: #e74c3c;
-        }
-        /* 基本リセット */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--light-bg);
-            padding: 20px;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        header {
-            background-color: var(--primary-color);
-            color: var(--light-text);
-            padding: 30px 0;
-            position: relative;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            font-weight: 300;
-            line-height: 1.2;
-        }
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 80%;
-            font-weight: 300;
-            margin: 0 auto;
-        }
-        section {
-            padding: 50px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .section-header {
-            margin-bottom: 30px;
-            position: relative;
-        }
-        h2 {
-            font-size: 2rem;
-            font-weight: 400;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
-        }
-        h3 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin: 30px 0 15px;
-            color: var(--secondary-color);
-        }
-        h4 {
-            font-size: 1.3rem;
-            margin-top: 15px;
-            color: var(--secondary-color);
-        }
-        p {
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-            text-align: justify;
-        }
-        ul, ol {
-            margin-left: 20px;
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-        /* グラフスタイル */
-        .chart-container {
-            background-color: #f0f0f0;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 30px 0;
-        }
-        .chart-title {
-            text-align: center;
-            font-size: 1.3rem;
-            font-weight: 500;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-        .bar-chart {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto 20px auto;
-        }
-        .bar {
-            height: 35px;
-            background: #0073e6;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            position: relative;
-            color: #fff;
-            font-weight: bold;
-            font-size: 1em;
-            padding-right: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-        }
-        .bar span {
-            position: absolute;
-            left: 10px;
-            color: #fff;
-            font-weight: normal;
-        }
-        /* テーブルスタイル */
-        .styled-table {
-            border-collapse: collapse;
-            margin: 30px auto;
-            width: 100%;
-            max-width: 800px;
-            font-size: 1em;
-            border: 1px solid var(--border-color);
-        }
-        .styled-table th, .styled-table td {
-            padding: 12px 15px;
-            text-align: center;
-            border: 1px solid var(--border-color);
-        }
-        .styled-table th {
-            background-color: var(--primary-color);
-            color: var(--light-text);
-            font-size: 1.05em;
-        }
-        .styled-table tbody tr:nth-child(even) {
-            background-color: #f3f3f3;
-        }
-        /* インサイトカード */
-        .insights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-        }
-        .insight-card {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            padding: 25px;
-            position: relative;
-            overflow: hidden;
-        }
-        .insight-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background-color: var(--accent-color);
-        }
-        .insight-title {
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-        .insight-content {
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-        .highlight {
-            color: var(--secondary-color);
-            font-weight: 500;
-        }
-        /* 結論・付録など */
-        .key-finding {
-            background-color: #f0f8ff;
-            border-left: 4px solid var(--accent-color);
-            padding: 15px 20px;
-            margin: 25px 0;
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-        .detailed-analysis {
-            margin: 25px 0;
-            line-height: 1.7;
-        }
-        .insights-grid .insight-card {
-            min-height: 180px;
-        }
-        footer {
-            background-color: var(--primary-color);
-            color: var(--light-text);
-            padding: 30px 0;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .sources {
-            margin-top: 20px;
-            font-style: italic;
-            opacity: 0.8;
-        }
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            .chart {
-                height: 300px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="header-text">
-                    <h1>企業PC導入戦略分析レポート</h1>
-                    <p class="subtitle">企業規模別のニーズと戦略的示唆に基づいた最適アプローチ</p>
-                </div>
-                <div class="logo">
-                    Strategic<br>PC<br>Insights
-                </div>
-            </div>
-        </div>
-    </header>
-    
-    <!-- エグゼクティブサマリー -->
-    <section>
-        <div class="container">
-            <div class="section-header">
-                <h2>エグゼクティブサマリー</h2>
-                <p class="section-description">本レポートでは、企業規模に応じた従業員用PC導入時の重視点の違いと、それに基づく最適なIT資産管理戦略の示唆をまとめています。小規模企業から大企業まで、各企業の特性に合わせた戦略的アプローチが求められています。</p>
-            </div>
-            <div class="key-finding">
-                <p>企業規模により、PC導入時の最重視要素、調達チャネル、PC形態の選択に大きな違いが見られます。特に、小規模企業は<strong>コスト重視</strong>、大企業は<strong>リスク回避・モバイル性</strong>を重視する傾向が顕著です。これらの違いを理解することが、最適なIT投資戦略の構築に不可欠です。</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- 分析セクション -->
-    <section>
-        <div class="container">
-            <div class="section-header">
-                <h2>従業員規模別のPC導入時の重視要素</h2>
-            </div>
-            <div class="chart-container">
-                <div class="chart-title">【従業員30～100人規模】PC導入時の最重視要素</div>
-                <div class="bar-chart">
-                    <div class="bar" style="width: 39.3%;">
-                        <span>コスト：39.3%</span>
-                    </div>
-                    <div class="bar" style="width: 31.4%; background: #e67e22;">
-                        <span>パフォーマンス：31.4%</span>
-                    </div>
-                    <div class="bar" style="width: 14.6%; background: #27ae60;">
-                        <span>リスク回避：14.6%</span>
-                    </div>
-                    <div class="bar" style="width: 14.7%; background: #8e44ad;">
-                        <span>運用効率：14.7%</span>
-                    </div>
-                </div>
-                <p>このグラフから、小規模企業は「コスト」を特に重視している一方、大企業では「リスク回避」の重視が高い傾向がうかがえます。</p>
-            </div>
-            
-            <div class="chart-container">
-                <div class="chart-title">企業規模別：PC形態利用状況の比較</div>
-                <table class="styled-table">
-                    <thead>
-                        <tr>
-                            <th>企業規模</th>
-                            <th>デスクトップ中心</th>
-                            <th>デスクトップ＋据置ノート併用</th>
-                            <th>据置ノート中心</th>
-                            <th>デスクトップ＋軽量モバイル</th>
-                            <th>軽量モバイル中心</th>
-                            <th>その他</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>30～100人未満<br>(小規模)</td>
-                            <td><strong>33.5%</strong></td>
-                            <td>32.5%</td>
-                            <td>24.3%</td>
-                            <td>5.3%</td>
-                            <td>4.4%</td>
-                            <td>0.0%</td>
-                        </tr>
-                        <tr>
-                            <td>100～1000人未満<br>(中規模)</td>
-                            <td>19.7%</td>
-                            <td><strong>33.7%</strong></td>
-                            <td>21.4%</td>
-                            <td>13.3%</td>
-                            <td>11.7%</td>
-                            <td>0.3%</td>
-                        </tr>
-                        <tr>
-                            <td>1000人以上<br>(大企業)</td>
-                            <td>14.2%</td>
-                            <td>31.1%</td>
-                            <td><strong>30.4%</strong></td>
-                            <td>11.7%</td>
-                            <td>12.6%</td>
-                            <td>0.0%</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="detailed-analysis">
-                    <p>中規模企業は両者の中間的な傾向を示しますが、注目すべきは「デスクトップと据置ノート型の併用」が<span class="highlight">33.7%と最も高い</span>点です。これは移行過程の企業が多いことを示唆しており、中規模企業では職種や役職に応じたPC形態の使い分け、または段階的な移行が進行中であると考えられます。</p>
-                    
-                    <p>「据置ノート中心」の環境も企業規模による差異が見られ、大企業（30.4%）が小規模企業（24.3%）よりも6ポイント高いです。据置ノートPCは、設置スペースの効率化や災害時の持ち出し、オフィスレイアウト変更への柔軟性などのメリットがある一方、単価が高いため、コスト制約の厳しい小規模企業では普及率が低いと推測されます。</p>
-                    
-                    <p>全体として、大企業は<span class="highlight">モバイル性・柔軟性を重視</span>し、小規模企業は<span class="highlight">コスト効率を重視</span>している傾向が明確です。これは働き方改革やテレワーク推進、BCP対策などの戦略的IT投資の違いも反映しています。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- 販売シナリオ例セクション：更新された内容を反映 -->
-    <section>
-        <div class="container">
-            <div class="section-header">
-                <h2>戦略的示唆と販売シナリオ例</h2>
-                <p class="section-description">以下では、企業DNA（コスト重視／運用効率重視／パフォーマンス重視／リスク回避）ごとに、抽象的なシナリオコンセプトと具体的なアプローチ手順・提案内容を組み合わせた「販売シナリオ例」を提示します。これにより、パートナーが顧客に提案する際のストーリーテリングと具体的なアクションプランが明確になります。</p>
-            </div>
-            
-            <!-- コスト重視企業向けシナリオ -->
-            <h3>1. コスト重視企業向け: 「価値創造の逆転劇」シナリオ</h3>
-            <h4>(A) シナリオコンセプト</h4>
-            <ul>
-                <li>「ただ安いだけでなく、“逆転発想”のコスト戦略で会社を変える」</li>
-                <li>老舗メーカーが、過去の安価なPC大量導入でトラブル続出し、結果的に高い補修費や業務停止リスクに直面。</li>
-                <li>富士通パートナーは「長期的に最もコストが下がるPC」を提案。高い品質＆メンテナンス性が、ダウンタイムや追加投資を最小化する。</li>
-            </ul>
-            <h4>(B) 具体的なアプローチ手順</h4>
-            <ol>
-                <li>
-                    <strong>パートナー事前準備</strong>
-                    <ul>
-                        <li>顧客ヒアリングで予算枠、更新タイミング、故障率・保守費用を把握</li>
-                        <li>TCO試算ツールで5年間の総コスト比較を実施（安価なノーブランドPC vs. 富士通PC）</li>
-                        <li>リースやDaaS（月額サブスク）プランを整理し、数字で提案できるように準備</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>第一接触</strong>
-                    <ul>
-                        <li>「現状のPCは何年使っていますか？ 故障対応でどれだけのコストがかかっているか、ご存知ですか？」と現状課題を提示</li>
-                        <li>「リースモデルなら初期費用ゼロ、富士通PCなら故障率が低く、5年で総支出が20%低減」と具体的数値を提示</li>
-                        <li>「安いだけではなく、長期的にお得なPC導入」であることを強調</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>稟議サポート</strong>
-                    <ul>
-                        <li>ROI計算資料で費用対効果を明示（他社との比較も含む）</li>
-                        <li>リース月額シミュレーションを提示し、キャッシュフロー改善を訴求</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>クロージング</strong>
-                    <ul>
-                        <li>「安物買いのツケを断ち切る」ストーリーで、アフターサポートまで含めたトータルコスト優位を再強調</li>
-                        <li>具体的な導入台数・見積もり、限定キャンペーンで発注を促す</li>
-                    </ul>
-                </li>
-            </ol>
-            
-            <!-- 運用効率重視企業向けシナリオ -->
-            <h3>2. 運用効率重視企業向け: 「ノイジー情シスを救え！カイゼン劇場」シナリオ</h3>
-            <h4>(A) シナリオコンセプト</h4>
-            <ul>
-                <li>「IT部門が雑務の地獄から解放され、本来の付加価値業務に集中できる」</li>
-                <li>300～500名規模の中堅企業で、情シス担当が少数ながらPC管理や故障対応に追われている現状に焦点。</li>
-                <li>富士通PCの低故障率、充実した保守体制、キッティング代行により、情シス作業を大幅に削減する提案。</li>
-            </ul>
-            <h4>(B) 具体的なアプローチ手順</h4>
-            <ol>
-                <li>
-                    <strong>パートナー事前準備</strong>
-                    <ul>
-                        <li>現状のPC故障発生率、セットアップ時間、問い合わせ件数などをヒアリング</li>
-                        <li>「情シス働き方改革」資料と富士通PC支援ツールを組み合わせたケーススタディ作成</li>
-                        <li>他社製品との比較データを用いて、運用工数削減効果を試算</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>第一接触</strong>
-                    <ul>
-                        <li>「御社の情シスは、日々のPC管理で大変な負担を感じていませんか？」と現状を提起</li>
-                        <li>「富士通PC＋キッティングサービスで、年間○○時間の作業工数が削減可能」と具体的な数字を提示</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>稟議サポート</strong>
-                    <ul>
-                        <li>運用コスト削減ROIを具体的な比較データで示す</li>
-                        <li>大企業での迅速対応実績を根拠に、信頼性の高さを訴求</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>クロージング</strong>
-                    <ul>
-                        <li>情シスの負担軽減と、IT部門の本来の業務へのシフトを強調</li>
-                        <li>延長保守やオンサイト保守プランなど、付加価値を具体的に提示</li>
-                    </ul>
-                </li>
-            </ol>
-            
-            <!-- 成果重視企業向けシナリオ -->
-            <h3>3. 成果（パフォーマンス）重視企業向け: 「未来創造ファーストインパクト」シナリオ</h3>
-            <h4>(A) シナリオコンセプト</h4>
-            <ul>
-                <li>「最新テクノロジーを武器に、ビジネスの未来を切り拓く」</li>
-                <li>急成長中のIT企業が、社員の生産性向上と業務変革を実現するために、従来のPCからの刷新を模索。</li>
-                <li>富士通PCの高性能モデル、モバイル性、クラウド連携が、DXの最速エンジンとなることを提案。</li>
-            </ul>
-            <h4>(B) 具体的なアプローチ手順</h4>
-            <ol>
-                <li>
-                    <strong>パートナー事前準備</strong>
-                    <ul>
-                        <li>成功事例（DX推進、テレワーク改善）の収集</li>
-                        <li>最新モデルの実機デモ環境を整備し、実際の操作感を体験可能に</li>
-                        <li>ROIシミュレーションで、生産性向上による具体的効果を定量化</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>第一接触</strong>
-                    <ul>
-                        <li>「御社のリモートワーク環境、最新PCで劇的に変わるとしたら？」と未来ビジョンを提示</li>
-                        <li>高機能モデルの特長や導入後の業務効率向上効果を、具体的な数字で示す</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>稟議サポート</strong>
-                    <ul>
-                        <li>経営層向けに、プロジェクト納期短縮や売上増加効果のシミュレーション資料を用意</li>
-                        <li>試験導入（PoC）のオファーで実際の効果測定を促す</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>クロージング</strong>
-                    <ul>
-                        <li>未来ビジョンを再描写し、「最初のインパクト」を強調、限定オファーで早期導入を促す</li>
-                    </ul>
-                </li>
-            </ol>
-            
-            <!-- リスク回避企業向けシナリオ -->
-            <h3>4. リスク回避企業向け: 「企業守護神」シナリオ</h3>
-            <h4>(A) シナリオコンセプト</h4>
-            <ul>
-                <li>「情報漏洩リスクを極小化し、企業の守護神となるPC」</li>
-                <li>金融、官公庁、医療など、厳格なセキュリティが求められる現場で、富士通PCの多層防御と国内サポート体制が鍵となる。</li>
-            </ul>
-            <h4>(B) 具体的なアプローチ手順</h4>
-            <ol>
-                <li>
-                    <strong>パートナー事前準備</strong>
-                    <ul>
-                        <li>顧客のセキュリティ要件（認証方式、暗号化基準など）を詳細にヒアリング</li>
-                        <li>富士通PCの独自セキュリティ機能（PalmSecure、TPM2.0、BIOS保護など）を分かりやすく資料化</li>
-                        <li>国内サポート体制や導入実績をまとめた事例集を作成</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>第一接触</strong>
-                    <ul>
-                        <li>「近年の情報漏洩事件をご存知ですか？ 富士通PCは安全性において実績があり、万一の際も迅速に対応可能です」と安心感を提供</li>
-                        <li>具体的なセキュリティ機能と、遠隔ロック・データ消去対応を説明</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>稟議サポート</strong>
-                    <ul>
-                        <li>製品のセキュリティ仕様書や第三者認証資料を提示し、全社的なリスク回避効果を証明</li>
-                        <li>「情報漏洩が発生すれば莫大な損害に」とリスクの具体性を訴え、投資価値を強調</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>クロージング</strong>
-                    <ul>
-                        <li>「企業守護神」としての富士通PCを強調し、長期保守契約・国内サポート体制を再確認</li>
-                        <li>「守りが強いからこそ攻めの経営が可能」と前向きなメッセージで締めくくる</li>
-                    </ul>
-                </li>
-            </ol>
-            
-            <h3>シナリオ例のまとめ</h3>
-            <ul>
-                <li><strong>抽象度と具体性の融合:</strong> 各シナリオは、企業の価値観に寄り添った抽象的なコンセプトと、具体的な数字・ツール・事例を組み合わせています。</li>
-                <li><strong>パートナーによるカスタマイズ:</strong> 各シナリオは、パートナーの業界知見や独自の強みを加えることで、さらに魅力的な提案に昇華されます。</li>
-                <li><strong>ツールキットの整備:</strong> DNA別のプレゼン資料、ROI計算シート、事例集、FAQ、想定問答集を用意し、パートナーが容易にカスタマイズできる体制が重要です。</li>
-                <li><strong>ハイブリッド対応:</strong> 複数のDNAが混在するケースに対しては、各キーマンの意見を反映した複合シナリオを提案し、全体最適を図ります。</li>
-            </ul>
-            <p>これらのシナリオ例は一例ですが、パートナーが顧客に提案する際、ストーリーテリングと具体的なアクションプランを両立させることで、「まさに我が社のニーズにピッタリ！」と感じさせる提案を実現するための指針となります。</p>
-        </div>
-    </section>
-    
-    <!-- 結論セクション -->
-    <section>
-        <div class="container">
-            <div class="section-header">
-                <h2>結論：企業規模とニーズに応じた最適なIT戦略の構築</h2>
-            </div>
-            <div class="conclusion-text">
-                <p>本分析により、従業員用PC導入における意思決定プロセスは企業規模によって大きく異なることが明らかになりました。小規模企業は<strong>コスト重視</strong>(39.3%)の傾向が強く、デスクトップ中心(33.5%)の環境構築が顕著です。一方、中堅企業は<strong>パフォーマンス重視</strong>(31.4%)で、段階的な移行を示唆するデスクトップ＋据置ノート併用(33.7%)が最多となっています。大企業では<strong>モバイル性・リスク回避</strong>が重視され、メーカー直販やリース方式が主流です。</p>
-                
-                <p>これらの結果は、企業のIT投資戦略において一律のアプローチではなく、規模や重視する要素に合わせた差別化戦略が必要であることを示唆しています。特に、中小企業に対しては、コスト効率と働き方改革、セキュリティのバランスを取った提案が鍵となります。</p>
-            </div>
-        </div>
-    </section>
-    
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <p>企業PC導入戦略分析レポート © 2025</p>
-                <p class="sources">調査データ出典: 「割付（従業員規模）＆Q4DNA別 クロス表.xlsx」</p>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+<div class="chart-container">
+  <div class="chart-title">企業規模別：PC導入時の重視要素</div>
+  <div class="bar-chart">
+    <svg width="100%" height="100%" viewBox="0 0 800 400">
+      <!-- X軸とY軸 -->
+      <line x1="100" y1="350" x2="750" y2="350" stroke="#333" stroke-width="2" />
+      <line x1="100" y1="50" x2="100" y2="350" stroke="#333" stroke-width="2" />
+      
+      <!-- Y軸ラベル（40%を最大値として） -->
+      <text x="70" y="350" text-anchor="end" font-size="12">0%</text>
+      <text x="70" y="290" text-anchor="end" font-size="12">10%</text>
+      <text x="70" y="230" text-anchor="end" font-size="12">20%</text>
+      <text x="70" y="170" text-anchor="end" font-size="12">30%</text>
+      <text x="70" y="110" text-anchor="end" font-size="12">40%</text>
+      
+      <!-- グリッド線 -->
+      <line x1="100" y1="290" x2="750" y2="290" stroke="#ddd" stroke-width="1" />
+      <line x1="100" y1="230" x2="750" y2="230" stroke="#ddd" stroke-width="1" />
+      <line x1="100" y1="170" x2="750" y2="170" stroke="#ddd" stroke-width="1" />
+      <line x1="100" y1="110" x2="750" y2="110" stroke="#ddd" stroke-width="1" />
+      
+      <!-- X軸グループラベル -->
+      <text x="200" y="380" text-anchor="middle" font-size="14">コスト</text>
+      <text x="350" y="380" text-anchor="middle" font-size="14">パフォーマンス</text>
+      <text x="500" y="380" text-anchor="middle" font-size="14">リスク回避</text>
+      <text x="650" y="380" text-anchor="middle" font-size="14">運用効率</text>
+      
+      <!-- 各グループ内のバー（バー幅20px、グループ内で間隔10px） -->
+      <!-- グループ：コスト -->
+      <!-- 小規模：39.3% → 高さ ≒ 39.3/40*300 = 294.8px, y = 350 - 294.8 ≒ 55.2 -->
+      <rect x="190" y="55.2" width="20" height="294.8" fill="#3498db" />
+      <text x="200" y="45" text-anchor="middle" font-size="12" fill="#3498db">39.3%</text>
+      <!-- 中堅：35.0% → 高さ = 262.5px, y = 350 - 262.5 = 87.5 -->
+      <rect x="220" y="87.5" width="20" height="262.5" fill="#2ecc71" />
+      <text x="230" y="77" text-anchor="middle" font-size="12" fill="#2ecc71">35.0%</text>
+      <!-- 大企業：24.3% → 高さ = 182.3px, y = 350 - 182.3 = 167.7 -->
+      <rect x="250" y="167.7" width="20" height="182.3" fill="#f1c40f" />
+      <text x="260" y="157" text-anchor="middle" font-size="12" fill="#f1c40f">24.3%</text>
+      
+      <!-- グループ：パフォーマンス -->
+      <!-- 小規模：28.0% → 高さ = 210px, y = 350 - 210 = 140 -->
+      <rect x="340" y="140" width="20" height="210" fill="#3498db" />
+      <text x="350" y="130" text-anchor="middle" font-size="12" fill="#3498db">28.0%</text>
+      <!-- 中堅：31.4% → 高さ = 235.5px, y = 350 - 235.5 = 114.5 -->
+      <rect x="370" y="114.5" width="20" height="235.5" fill="#2ecc71" />
+      <text x="380" y="104" text-anchor="middle" font-size="12" fill="#2ecc71">31.4%</text>
+      <!-- 大企業：20.9% → 高さ = 156.8px, y = 350 - 156.8 = 193.2 -->
+      <rect x="400" y="193.2" width="20" height="156.8" fill="#f1c40f" />
+      <text x="410" y="183" text-anchor="middle" font-size="12" fill="#f1c40f">20.9%</text>
+      
+      <!-- グループ：リスク回避 -->
+      <!-- 小規模：14.6% → 高さ = 109.5px, y = 350 - 109.5 = 240.5 -->
+      <rect x="490" y="240.5" width="20" height="109.5" fill="#3498db" />
+      <text x="500" y="230" text-anchor="middle" font-size="12" fill="#3498db">14.6%</text>
+      <!-- 中堅：18.0% → 高さ = 135px, y = 350 - 135 = 215 -->
+      <rect x="520" y="215" width="20" height="135" fill="#2ecc71" />
+      <text x="530" y="205" text-anchor="middle" font-size="12" fill="#2ecc71">18.0%</text>
+      <!-- 大企業：25.2% → 高さ = 189px, y = 350 - 189 = 161 -->
+      <rect x="550" y="161" width="20" height="189" fill="#f1c40f" />
+      <text x="560" y="151" text-anchor="middle" font-size="12" fill="#f1c40f">25.2%</text>
+      
+      <!-- グループ：運用効率 -->
+      <!-- 小規模：14.7% → 高さ = 110.3px, y = 350 - 110.3 = 239.7 -->
+      <rect x="640" y="239.7" width="20" height="110.3" fill="#3498db" />
+      <text x="650" y="229" text-anchor="middle" font-size="12" fill="#3498db">14.7%</text>
+      <!-- 中堅：16.0% → 高さ = 120px, y = 350 - 120 = 230 -->
+      <rect x="670" y="230" width="20" height="120" fill="#2ecc71" />
+      <text x="680" y="220" text-anchor="middle" font-size="12" fill="#2ecc71">16.0%</text>
+      <!-- 大企業：12.0% → 高さ = 90px, y = 350 - 90 = 260 -->
+      <rect x="700" y="260" width="20" height="90" fill="#f1c40f" />
+      <text x="710" y="250" text-anchor="middle" font-size="12" fill="#f1c40f">12.0%</text>
+      
+    </svg>
+  </div>
+  <div class="chart-legend" style="margin-top: 20px; display: flex; justify-content: center; gap: 15px;">
+      <div class="legend-item">
+          <div class="legend-color" style="background-color: #3498db;"></div>
+          <span>小規模</span>
+      </div>
+      <div class="legend-item">
+          <div class="legend-color" style="background-color: #2ecc71;"></div>
+          <span>中堅</span>
+      </div>
+      <div class="legend-item">
+          <div class="legend-color" style="background-color: #f1c40f;"></div>
+          <span>大企業</span>
+      </div>
+  </div>
+  <p class="detailed-analysis">上記グループド・バーグラフは、各企業規模におけるPC導入時の重視要素（コスト、パフォーマンス、リスク回避、運用効率）を示しています。小規模企業はコスト重視が顕著である一方、大企業はリスク回避がより高く、働き方やIT戦略の違いを反映しています。</p>
+</div>
