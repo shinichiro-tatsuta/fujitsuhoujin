@@ -1,90 +1,673 @@
-<div class="chart-container">
-  <div class="chart-title">企業規模別：PC導入時の重視要素</div>
-  <div class="bar-chart">
-    <svg width="100%" height="100%" viewBox="0 0 800 400">
-      <!-- X軸とY軸 -->
-      <line x1="100" y1="350" x2="750" y2="350" stroke="#333" stroke-width="2" />
-      <line x1="100" y1="50" x2="100" y2="350" stroke="#333" stroke-width="2" />
-      
-      <!-- Y軸ラベル（40%を最大値として） -->
-      <text x="70" y="350" text-anchor="end" font-size="12">0%</text>
-      <text x="70" y="290" text-anchor="end" font-size="12">10%</text>
-      <text x="70" y="230" text-anchor="end" font-size="12">20%</text>
-      <text x="70" y="170" text-anchor="end" font-size="12">30%</text>
-      <text x="70" y="110" text-anchor="end" font-size="12">40%</text>
-      
-      <!-- グリッド線 -->
-      <line x1="100" y1="290" x2="750" y2="290" stroke="#ddd" stroke-width="1" />
-      <line x1="100" y1="230" x2="750" y2="230" stroke="#ddd" stroke-width="1" />
-      <line x1="100" y1="170" x2="750" y2="170" stroke="#ddd" stroke-width="1" />
-      <line x1="100" y1="110" x2="750" y2="110" stroke="#ddd" stroke-width="1" />
-      
-      <!-- X軸グループラベル -->
-      <text x="200" y="380" text-anchor="middle" font-size="14">コスト</text>
-      <text x="350" y="380" text-anchor="middle" font-size="14">パフォーマンス</text>
-      <text x="500" y="380" text-anchor="middle" font-size="14">リスク回避</text>
-      <text x="650" y="380" text-anchor="middle" font-size="14">運用効率</text>
-      
-      <!-- 各グループ内のバー（バー幅20px、グループ内で間隔10px） -->
-      <!-- グループ：コスト -->
-      <!-- 小規模：39.3% → 高さ ≒ 39.3/40*300 = 294.8px, y = 350 - 294.8 ≒ 55.2 -->
-      <rect x="190" y="55.2" width="20" height="294.8" fill="#3498db" />
-      <text x="200" y="45" text-anchor="middle" font-size="12" fill="#3498db">39.3%</text>
-      <!-- 中堅：35.0% → 高さ = 262.5px, y = 350 - 262.5 = 87.5 -->
-      <rect x="220" y="87.5" width="20" height="262.5" fill="#2ecc71" />
-      <text x="230" y="77" text-anchor="middle" font-size="12" fill="#2ecc71">35.0%</text>
-      <!-- 大企業：24.3% → 高さ = 182.3px, y = 350 - 182.3 = 167.7 -->
-      <rect x="250" y="167.7" width="20" height="182.3" fill="#f1c40f" />
-      <text x="260" y="157" text-anchor="middle" font-size="12" fill="#f1c40f">24.3%</text>
-      
-      <!-- グループ：パフォーマンス -->
-      <!-- 小規模：28.0% → 高さ = 210px, y = 350 - 210 = 140 -->
-      <rect x="340" y="140" width="20" height="210" fill="#3498db" />
-      <text x="350" y="130" text-anchor="middle" font-size="12" fill="#3498db">28.0%</text>
-      <!-- 中堅：31.4% → 高さ = 235.5px, y = 350 - 235.5 = 114.5 -->
-      <rect x="370" y="114.5" width="20" height="235.5" fill="#2ecc71" />
-      <text x="380" y="104" text-anchor="middle" font-size="12" fill="#2ecc71">31.4%</text>
-      <!-- 大企業：20.9% → 高さ = 156.8px, y = 350 - 156.8 = 193.2 -->
-      <rect x="400" y="193.2" width="20" height="156.8" fill="#f1c40f" />
-      <text x="410" y="183" text-anchor="middle" font-size="12" fill="#f1c40f">20.9%</text>
-      
-      <!-- グループ：リスク回避 -->
-      <!-- 小規模：14.6% → 高さ = 109.5px, y = 350 - 109.5 = 240.5 -->
-      <rect x="490" y="240.5" width="20" height="109.5" fill="#3498db" />
-      <text x="500" y="230" text-anchor="middle" font-size="12" fill="#3498db">14.6%</text>
-      <!-- 中堅：18.0% → 高さ = 135px, y = 350 - 135 = 215 -->
-      <rect x="520" y="215" width="20" height="135" fill="#2ecc71" />
-      <text x="530" y="205" text-anchor="middle" font-size="12" fill="#2ecc71">18.0%</text>
-      <!-- 大企業：25.2% → 高さ = 189px, y = 350 - 189 = 161 -->
-      <rect x="550" y="161" width="20" height="189" fill="#f1c40f" />
-      <text x="560" y="151" text-anchor="middle" font-size="12" fill="#f1c40f">25.2%</text>
-      
-      <!-- グループ：運用効率 -->
-      <!-- 小規模：14.7% → 高さ = 110.3px, y = 350 - 110.3 = 239.7 -->
-      <rect x="640" y="239.7" width="20" height="110.3" fill="#3498db" />
-      <text x="650" y="229" text-anchor="middle" font-size="12" fill="#3498db">14.7%</text>
-      <!-- 中堅：16.0% → 高さ = 120px, y = 350 - 120 = 230 -->
-      <rect x="670" y="230" width="20" height="120" fill="#2ecc71" />
-      <text x="680" y="220" text-anchor="middle" font-size="12" fill="#2ecc71">16.0%</text>
-      <!-- 大企業：12.0% → 高さ = 90px, y = 350 - 90 = 260 -->
-      <rect x="700" y="260" width="20" height="90" fill="#f1c40f" />
-      <text x="710" y="250" text-anchor="middle" font-size="12" fill="#f1c40f">12.0%</text>
-      
-    </svg>
-  </div>
-  <div class="chart-legend" style="margin-top: 20px; display: flex; justify-content: center; gap: 15px;">
-      <div class="legend-item">
-          <div class="legend-color" style="background-color: #3498db;"></div>
-          <span>小規模</span>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>企業PC導入戦略分析レポート：企業規模別アプローチの最適化</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --primary-color: #1a5276;
+      --secondary-color: #2874a6;
+      --accent-color: #3498db;
+      --light-bg: #f8f9fa;
+      --dark-bg: #2c3e50;
+      --text-color: #333333;
+      --light-text: #ffffff;
+      --border-color: #e0e0e0;
+      --chart-color-1: #3498db; /* コスト重視セグメント */
+      --chart-color-2: #2ecc71; /* 運用効率重視セグメント */
+      --chart-color-3: #f1c40f; /* パフォーマンス重視セグメント */
+      --chart-color-4: #e74c3c; /* リスク回避重視セグメント */
+    }
+    /* ベーシックリセット */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--light-bg);
+      padding: 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    header {
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      padding: 30px 0;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      font-weight: 300;
+      line-height: 1.2;
+    }
+    .subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 80%;
+      font-weight: 300;
+      margin: 0 auto;
+    }
+    section {
+      padding: 50px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .section-header {
+      margin-bottom: 30px;
+      position: relative;
+    }
+    h2 {
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 15px;
+      color: var(--primary-color);
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin: 30px 0 15px;
+      color: var(--secondary-color);
+    }
+    h4 {
+      font-size: 1.3rem;
+      margin-top: 15px;
+      color: var(--secondary-color);
+    }
+    p {
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+      text-align: justify;
+    }
+    ul, ol {
+      margin-left: 20px;
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    .highlight {
+      color: var(--secondary-color);
+      font-weight: 500;
+    }
+    /* chart-container */
+    .chart-container {
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 30px 0;
+    }
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .chart-title {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--primary-color);
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .chart {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      height: 400px;
+    }
+    .chart-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 15px;
+      justify-content: center;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+    .legend-color {
+      width: 15px;
+      height: 15px;
+      border-radius: 3px;
+      margin-right: 5px;
+    }
+    .detailed-analysis {
+      margin-top: 20px;
+      line-height: 1.7;
+    }
+    /* インサイトカード */
+    .insights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin: 40px 0;
+    }
+    .insight-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+      padding: 25px;
+      position: relative;
+      overflow: hidden;
+    }
+    .insight-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background-color: var(--accent-color);
+    }
+    .insight-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 15px;
+      color: var(--primary-color);
+    }
+    .insight-content {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    /* 戦略的示唆（ダーク背景） */
+    .strategic-implications {
+      background-color: var(--dark-bg);
+      color: var(--light-text);
+      padding: 50px 0;
+      margin: 50px 0;
+    }
+    .section-description {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+    .implication-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    .implication-card {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 25px;
+      transition: transform 0.3s ease;
+    }
+    .implication-card:hover {
+      transform: translateY(-5px);
+    }
+    .implication-icon {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: var(--accent-color);
+    }
+    .implication-title {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      font-weight: 500;
+      color: var(--accent-color);
+    }
+    .implication-text {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+    /* 結論など */
+    .key-finding {
+      background-color: #f0f8ff;
+      border-left: 4px solid var(--accent-color);
+      padding: 15px 20px;
+      margin: 25px 0;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    footer {
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      padding: 30px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .sources {
+      margin-top: 20px;
+      font-style: italic;
+      opacity: 0.8;
+    }
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .chart {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>企業PC導入戦略分析レポート</h1>
+      <p class="subtitle">企業規模別のニーズと戦略的示唆に基づいた最適アプローチ</p>
+    </div>
+  </header>
+  
+  <!-- エグゼクティブサマリー -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <h2>エグゼクティブサマリー</h2>
+        <p class="section-description">
+          本レポートでは、企業規模に応じた従業員用PC導入時の重視点の違いと、それに基づく最適なIT資産管理戦略の示唆をまとめています。
+          小規模企業から大企業まで、各企業の特性に合わせた戦略的アプローチが求められています。
+        </p>
       </div>
-      <div class="legend-item">
-          <div class="legend-color" style="background-color: #2ecc71;"></div>
-          <span>中堅</span>
+      <div class="key-finding">
+        <p>企業規模により、PC導入時の最重視要素、調達チャネル、PC形態の選択に大きな違いが見られます。特に、小規模企業は<strong>コスト重視</strong>、大企業は<strong>リスク回避・モバイル性</strong>を重視する傾向が顕著です。これらの違いを理解することが、最適なIT投資戦略の構築に不可欠です。</p>
       </div>
-      <div class="legend-item">
-          <div class="legend-color" style="background-color: #f1c40f;"></div>
-          <span>大企業</span>
+    </div>
+  </section>
+  
+  <!-- 重視点セグメント別の評価傾向分析 -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <h2>重視点セグメント別の評価傾向分析</h2>
+        <p class="section-description">各企業が最重視する要素によって、関連指標に対する評価にも明確な差異が見られます。これは企業のIT戦略の方向性や意思決定プロセスに大きな影響を与えています。</p>
       </div>
-  </div>
-  <p class="detailed-analysis">上記グループド・バーグラフは、各企業規模におけるPC導入時の重視要素（コスト、パフォーマンス、リスク回避、運用効率）を示しています。小規模企業はコスト重視が顕著である一方、大企業はリスク回避がより高く、働き方やIT戦略の違いを反映しています。</p>
-</div>
+      
+      <!-- コスト要素グラフ -->
+      <div class="chart-container">
+        <div class="chart-header">
+          <div class="chart-title">セグメント別：コスト要素への重視度（初期導入費用の安さ）</div>
+        </div>
+        <div class="chart">
+          <svg width="100%" height="100%" viewBox="0 0 800 400">
+            <!-- 軸 -->
+            <line x1="100" y1="350" x2="750" y2="350" stroke="#333" stroke-width="2" />
+            <line x1="100" y1="50" x2="100" y2="350" stroke="#333" stroke-width="2" />
+            
+            <!-- Y軸ラベル -->
+            <text x="80" y="350" text-anchor="end" font-size="12">0%</text>
+            <text x="80" y="300" text-anchor="end" font-size="12">5%</text>
+            <text x="80" y="250" text-anchor="end" font-size="12">10%</text>
+            <text x="80" y="200" text-anchor="end" font-size="12">15%</text>
+            <text x="80" y="150" text-anchor="end" font-size="12">20%</text>
+            <text x="80" y="100" text-anchor="end" font-size="12">25%</text>
+            
+            <!-- グリッド線 -->
+            <line x1="100" y1="300" x2="750" y2="300" stroke="#ddd" stroke-width="1" />
+            <line x1="100" y1="250" x2="750" y2="250" stroke="#ddd" stroke-width="1" />
+            <line x1="100" y1="200" x2="750" y2="200" stroke="#ddd" stroke-width="1" />
+            <line x1="100" y1="150" x2="750" y2="150" stroke="#ddd" stroke-width="1" />
+            <line x1="100" y1="100" x2="750" y2="100" stroke="#ddd" stroke-width="1" />
+            
+            <!-- X軸ラベル -->
+            <text x="130" y="370" text-anchor="middle" font-size="12">0</text>
+            <text x="160" y="370" text-anchor="middle" font-size="12">1</text>
+            <text x="190" y="370" text-anchor="middle" font-size="12">2</text>
+            <text x="220" y="370" text-anchor="middle" font-size="12">3</text>
+            <text x="250" y="370" text-anchor="middle" font-size="12">4</text>
+            <text x="280" y="370" text-anchor="middle" font-size="12">5</text>
+            <text x="310" y="370" text-anchor="middle" font-size="12">6</text>
+            <text x="340" y="370" text-anchor="middle" font-size="12">7</text>
+            <text x="370" y="370" text-anchor="middle" font-size="12">8</text>
+            <text x="400" y="370" text-anchor="middle" font-size="12">9</text>
+            <text x="430" y="370" text-anchor="middle" font-size="12">10</text>
+            <text x="280" y="390" text-anchor="middle" font-size="12">全く重視しない ← 評価スコア → 非常に重視する</text>
+            
+            <!-- コスト重視グループの線 -->
+            <polyline
+              points="130,346 160,350 190,347 220,344 250,332 280,309 310,320 340,245 370,245 400,323 430,240"
+              fill="none"
+              stroke="var(--chart-color-1)"
+              stroke-width="3"
+              stroke-dasharray="none"
+            />
+            
+            <!-- 運用効率重視グループの線 -->
+            <polyline
+              points="130,344 160,347 190,334 220,334 250,334 280,300 310,311 340,258 370,228 400,305 430,320"
+              fill="none"
+              stroke="var(--chart-color-2)"
+              stroke-width="3"
+              stroke-dasharray="5,3"
+            />
+            
+            <!-- パフォーマンス重視グループの線 -->
+            <polyline
+              points="130,346 160,348 190,337 220,331 250,335 280,310 310,298 340,248 370,263 400,282 430,315"
+              fill="none"
+              stroke="var(--chart-color-3)"
+              stroke-width="3"
+              stroke-dasharray="10,3"
+            />
+            
+            <!-- リスク回避重視グループの線 -->
+            <polyline
+              points="130,344 160,347 190,347 220,338 250,320 280,303 310,280 340,284 370,237 400,315 430,311"
+              fill="none"
+              stroke="var(--chart-color-4)"
+              stroke-width="3"
+              stroke-dasharray="5,5"
+            />
+            
+            <!-- ポイントマーカー (最も強調したいポイント) -->
+            <circle cx="430" cy="240" r="6" fill="var(--chart-color-1)" />
+            <text x="430" y="230" text-anchor="middle" font-size="12" font-weight="bold">21.5%</text>
+            
+            <circle cx="370" cy="228" r="4" fill="var(--chart-color-2)" />
+            <circle cx="370" cy="263" r="4" fill="var(--chart-color-3)" />
+            <circle cx="370" cy="237" r="4" fill="var(--chart-color-4)" />
+          </svg>
+        </div>
+        
+        <div class="chart-legend" style="margin-top: 20px; justify-content: center;">
+          <div class="legend-item">
+            <div class="legend-color" style="background-color: var(--chart-color-1);"></div>
+            <span>コスト重視セグメント</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color" style="background-color: var(--chart-color-2);"></div>
+            <span>運用効率重視セグメント</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color" style="background-color: var(--chart-color-3);"></div>
+            <span>パフォーマンス重視セグメント</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color" style="background-color: var(--chart-color-4);"></div>
+            <span>リスク回避セグメント</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="detailed-analysis">
+        <p>Q4で分けられた重視点セグメント別に、関連する要素への評価傾向を詳細に分析すると、<span class="highlight">各企業が自社の優先事項に沿った評価傾向</span>を示すことが明らかになりました。Q3では各要素について「0（全く重視しない）～10（非常に重視する）」で評価しており、そのスコア分布を重視点セグメントごとに分析すると、明確なパターンが浮かび上がります。</p>
+        
+        <p>例えば「<span class="highlight">初期導入費用や月額リース料の安さ（コスト要素）</span>」に対する重視度では、全体では「10（非常に重視）」と回答した割合は13.5%ですが、Q4で「コスト」を最重視すると回答した層では<span class="highlight">21.5%</span>と突出しています。これに対し、「運用効率」重視層では8.9%、「パフォーマンス」重視層では9.8%、「リスク回避」重視層では11.7%と、いずれも全体平均を下回る水準にとどまっています。</p>
+        
+        <p>さらに、評価スコア8（かなり重視）の回答比率を見ても、コスト重視セグメントが21.1%と最も高く、他のセグメントと比較して3〜6ポイントの差があります。つまり、コスト重視と回答した企業は、実際のコスト関連項目への評価も一貫して高い傾向にあり、この一貫性は他の重視点セグメントでも同様に見られます。</p>
+        
+        <p>この結果から、<span class="highlight">自社が最も重視すると答えた項目には、他の層よりも高い評価を与えている</span>ことが数字に明確に表れており、企業の意思決定において優先順位の一貫性が確認できます。この傾向は、マーケティング戦略や製品開発において、各セグメントが最も共感する訴求ポイントを洗い出す上で重要な示唆を与えています。</p>
+      </div>
+      
+      <!-- セキュリティ要素グラフ -->
+      <div class="chart-container">
+        <div class="chart-header">
+          <div class="chart-title">セグメント別：セキュリティ要素への重視度（情報漏洩防止）</div>
+        </div>
+        <div class="chart">
+          <svg width="100%" height="100%" viewBox="0 0 800 400">
+            <!-- 軸 -->
+            <line x1="100" y1="350" x2="750" y2="350" stroke="#333" stroke-width="2" />
+            <line x1="100" y1="50" x2="100" y2="350" stroke="#333" stroke-width="2" />
+            
+            <!-- Y軸ラベル -->
+            <text x="80" y="350" text-anchor="end" font-size="12">0%</text>
+            <text x="80" y="300" text-anchor="end" font-size="12">5%</text>
+            <text x="80" y="250" text-anchor="end" font-size="12">10%</text>
+            <text x="80" y="200" text-anchor="end" font-size="12">15%</text>
+            <text x="80" y="150" text-anchor="end" font-size="12">20%</text>
+            <text x="80" y="100" text-anchor="end" font-size="12">25%</text>
+            <text x="80" y="50" text-anchor="end" font-size="12">30%</text>
+            
+            <!-- グリッド線 -->
+            <line x1="100" y1="300" x2="750" y2="300" stroke="#ddd" stroke-width="1" />
+            <line x1="100" y1="250" x2="750" y2="250" stroke="#ddd" stroke-width="1" />
+            <line x1="100" y1="200" x2="750" y2="200" stroke="#ddd" stroke-width="1" />
+            <line x1="100" y1="150" x2="750" y2="150" stroke="#ddd" stroke-width="1" />
+            <line x1="100" y1="100" x2="750" y2="100" stroke="#ddd" stroke-width="1" />
+            <line x1="100" y1="50" x2="750" y2="50" stroke="#ddd" stroke-width="1" />
+            
+            <!-- X軸ラベル -->
+            <text x="130" y="370" text-anchor="middle" font-size="12">0</text>
+            <text x="160" y="370" text-anchor="middle" font-size="12">1</text>
+            <text x="190" y="370" text-anchor="middle" font-size="12">2</text>
+            <text x="220" y="370" text-anchor="middle" font-size="12">3</text>
+            <text x="250" y="370" text-anchor="middle" font-size="12">4</text>
+            <text x="280" y="370" text-anchor="middle" font-size="12">5</text>
+            <text x="310" y="370" text-anchor="middle" font-size="12">6</text>
+            <text x="340" y="370" text-anchor="middle" font-size="12">7</text>
+            <text x="370" y="370" text-anchor="middle" font-size="12">8</text>
+            <text x="400" y="370" text-anchor="middle" font-size="12">9</text>
+            <text x="430" y="370" text-anchor="middle" font-size="12">10</text>
+            <text x="280" y="390" text-anchor="middle" font-size="12">全く重視しない ← 評価スコア → 非常に重視する</text>
+            
+            <!-- コスト重視グループの線 -->
+            <polyline
+              points="130,342 160,348 190,344 220,331 250,332 280,278 310,287 340,283 370,269 400,329 430,329"
+              fill="none"
+              stroke="var(--chart-color-1)"
+              stroke-width="3"
+            />
+            <!-- 運用効率重視グループの線 -->
+            <polyline
+              points="130,347 160,345 190,344 220,342 250,332 280,303 310,311 340,266 370,240 400,305 430,312"
+              fill="none"
+              stroke="var(--chart-color-2)"
+              stroke-width="3"
+              stroke-dasharray="5,3"
+            />
+            <!-- パフォーマンス重視グループの線 -->
+            <polyline
+              points="130,347 160,345 190,342 220,337 250,337 280,317 310,287 340,268 370,241 400,293 430,280"
+              fill="none"
+              stroke="var(--chart-color-3)"
+              stroke-width="3"
+              stroke-dasharray="10,3"
+            />
+            <!-- リスク回避重視グループの線 -->
+            <polyline
+              points="130,347 160,344 190,346 220,344 250,335 280,300 310,320 340,284 370,239 400,283 430,242"
+              fill="none"
+              stroke="var(--chart-color-4)"
+              stroke-width="3"
+              stroke-dasharray="5,5"
+            />
+            
+            <!-- ポイントマーカー -->
+            <circle cx="430" cy="242" r="6" fill="var(--chart-color-4)" />
+            <text x="430" y="230" text-anchor="middle" font-size="12" font-weight="bold">21.5%</text>
+            
+            <circle cx="430" cy="329" r="4" fill="var(--chart-color-1)" />
+            <text x="430" y="319" text-anchor="middle" font-size="10">5.7%</text>
+            
+            <circle cx="430" cy="312" r="4" fill="var(--chart-color-2)" />
+            <circle cx="430" cy="280" r="4" fill="var(--chart-color-3)" />
+          </svg>
+        </div>
+        <div class="chart-legend" style="margin-top: 20px; justify-content: center;">
+          <div class="legend-item">
+            <div class="legend-color" style="background-color: var(--chart-color-1);"></div>
+            <span>コスト重視セグメント</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color" style="background-color: var(--chart-color-2);"></div>
+            <span>運用効率重視セグメント</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color" style="background-color: var(--chart-color-3);"></div>
+            <span>パフォーマンス重視セグメント</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color" style="background-color: var(--chart-color-4);"></div>
+            <span>リスク回避セグメント</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="detailed-analysis">
+        <p>同様のパターンは「<span class="highlight">情報漏洩防止対策</span>」などセキュリティ関連要素の評価でもさらに顕著に見られます。この項目では、リスク回避を最重視するセグメントが「10（非常に重視する）」に付けた回答が<span class="highlight">21.5%</span>に達している一方、コスト重視のセグメントでは<span class="highlight">わずか5.7%</span>にとどまるという、約4倍もの顕著な差が見られます。</p>
+        
+        <p>この評価傾向の差は、スコア8～9の高評価範囲でも同様のパターンが見られ、リスク回避セグメントでは高評価（スコア8以上）の合計が50%を超える一方、コスト重視セグメントでは30%程度にとどまっています。これは、セキュリティ投資の優先度に対する企業間の大きな認識差を示しており、「同じセキュリティ機能でも、企業によって価値評価が大きく異なる」という重要な示唆を与えています。</p>
+        
+        <p>重視点セグメントごとのスコア分布を複数の評価項目について分析すると、<span class="highlight">各企業は自社の最優先事項に対して高い評価を与え</span>、それ以外の要素については相対的に低い評価を与える傾向が一貫して観察されます。これは企業のIT戦略において「選択と集中」が行われていることを示唆しており、限られた予算や人的リソースの中で、何を最優先するかという明確な選択が行われていると考えられます。</p>
+        
+        <p>また、重視点セグメントごとの評価傾向の違いは、企業がPC関連の意思決定を行う際の評価基準や指標の違いを反映していると考えられます。例えば、コスト重視企業では「予算内に収まるか」が最重要判断基準である一方、パフォーマンス重視企業では「業務効率がどれだけ向上するか」、リスク回避企業では「セキュリティ対策が十分か」という異なる判断軸が働いていると推測されます。</p>
+      </div>
+      
+      <div class="insights-grid">
+        <div class="insight-card">
+          <h3 class="insight-title">コスト重視セグメントの特性</h3>
+          <p class="insight-content">
+            コスト重視と回答した企業は、初期導入費用や運用コストの安さに<span class="highlight">非常に高い重視度</span>を示す一方で、セキュリティ対策やパフォーマンス面への評価は相対的に低い傾向にあります。具体的には、「初期導入費用の安さ」への最高評価（スコア10）が21.5%で全セグメント中最高である一方、「セキュリティ対策」への最高評価はわずか5.7%と全セグメント中最低です。これは予算制約が厳しい企業で見られる典型的な傾向であり、コスト削減が最優先事項となっていることを示しています。このセグメントには、TCO（総所有コスト）の透明性を高めた提案や、中長期的なコスト削減効果が見える化された製品・サービスが効果的でしょう。
+          </p>
+        </div>
+        
+        <div class="insight-card">
+          <h3 class="insight-title">運用効率重視セグメントの特性</h3>
+          <p class="insight-content">
+            運用効率を重視するグループは<span class="highlight">故障率の低さや保守サポートの充実度</span>に高い評価を与えており、「高い堅牢性・故障率の低さ」では全セグメント平均より4.5ポイント高い評価傾向があります。特に「初期設定のしやすさ・サポート体制」への高評価（スコア8〜10）は合計45.6%に達し、IT部門の業務負担軽減を強く意識していることがわかります。このセグメントは一度の故障や不具合による業務停止コストを敏感に認識しており、耐久性の高さや故障時の迅速な対応、リモート管理機能の充実など、「平常時・非常時の運用負荷軽減」を訴求したアプローチが効果的です。
+          </p>
+        </div>
+        
+        <div class="insight-card">
+          <h3 class="insight-title">パフォーマンス重視セグメントの特性</h3>
+          <p class="insight-content">
+            パフォーマンス・成果を重視する企業は、<span class="highlight">処理性能や操作性、モバイル対応</span>への評価が他セグメントより明確に高く、「パソコンの処理性能」への最高評価（スコア10）は20.0%と全セグメント平均の13.5%を大きく上回ります。特に「軽量・モバイル・リモート対応」への評価も高く、働き方改革やDX推進との関連性が強いセグメントです。ビジネス成果に直接影響する性能・機能を求める傾向が強く、コストよりも投資対効果（ROI）を重視する傾向があります。このセグメントには、生産性向上や業務変革につながる具体的な機能や、先進的なテクノロジーを訴求したアプローチが最も有効です。
+          </p>
+        </div>
+        
+        <div class="insight-card">
+          <h3 class="insight-title">リスク回避重視セグメントの特性</h3>
+          <p class="insight-content">
+            リスク回避を最重視する企業は<span class="highlight">情報漏洩防止やセキュリティ対策</span>に非常に高い評価を与えており、「情報漏洩防止対策」への最高評価（スコア10）は21.5%と、コスト重視セグメント(5.7%)の約4倍に達します。「アクセス管理などセキュリティ（認証システム）」や「最新のセキュリティソフト」に対する評価も同様に高く、企業にとってのセキュリティリスクへの懸念が強く表れています。このセグメントは導入・運用コストよりも、万一のインシデント発生時の損害や信頼喪失のリスクを重視しており、高度なセキュリティ機能や認証技術、監査対応などコンプライアンス面を強調したアプローチが効果的です。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 戦略的示唆（ダーク背景） -->
+  <section class="strategic-implications">
+    <div class="container">
+      <h2 style="color: white;">戦略的示唆</h2>
+      <p class="section-description" style="color: rgba(255,255,255,0.8);">
+        この調査データから導き出される主要な戦略的示唆を以下にまとめます。企業のPC導入・管理戦略において、
+        規模や優先事項に応じた差別化アプローチが求められていることが明らかになりました。
+      </p>
+      <div class="implication-cards">
+        <div class="implication-card">
+          <div class="implication-icon">📊</div>
+          <h3 class="implication-title">企業規模に応じたセグメント戦略</h3>
+          <p class="implication-text">
+            小規模企業ではコスト重視(39.3%)、大企業ではリスク回避(25.2%)やパフォーマンス(29.8%)を重視する傾向が顕著なため、
+            企業規模に合わせた価値訴求が重要です。小規模向けには初期コスト削減と簡易導入、大企業向けにはセキュリティ対策の充実度や
+            グローバル標準への適合性を前面に出したアプローチが効果的です。特に中規模企業はパフォーマンス・成果重視(31.4%)の
+            傾向が強いため、DX推進や働き方改革に直結する機能価値の訴求が成功への鍵となるでしょう。
+          </p>
+        </div>
+        
+        <div class="implication-card">
+          <div class="implication-icon">🔄</div>
+          <h3 class="implication-title">調達チャネルの最適化</h3>
+          <p class="implication-text">
+            企業規模によって調達チャネルの利用パターンが大きく異なることが明らかになりました。大企業向けには直接取引(46.6%)や
+            リース・レンタル(23.6%)プログラムの強化、中規模企業には代理店経由(40.1%)と直販(40.5%)の両立、
+            小規模企業には多様な「その他」チャネル(43.2%)への対応が必要です。特に小規模企業では柔軟な調達オプションと
+            サポート体制、大企業では一元管理とボリュームディスカウント、中堅企業では段階的移行を支援するプログラムの
+            整備が求められています。
+          </p>
+        </div>
+        
+        <div class="implication-card">
+          <div class="implication-icon">💻</div>
+          <h3 class="implication-title">デバイス形態のトレンド対応</h3>
+          <p class="implication-text">
+            デスクトップからモバイルへの移行傾向が明確に表れており、特に大企業ではモバイル活用比率が24.3%と、
+            小規模企業(9.7%)の2.5倍に達しています。小規模企業はデスクトップ中心(33.5%)の環境が依然として多いため、
+            コスト効率を高めたデスクトップ製品が必要な一方、大企業ではモバイルセキュリティとリモート管理機能の充実が
+            求められています。中規模企業はデスクトップと据置ノートの併用(33.7%)が多く、段階的移行をサポートする
+            製品ポートフォリオと移行支援サービスの提供が有効でしょう。
+          </p>
+        </div>
+        
+        <div class="implication-card">
+          <div class="implication-icon">🎯</div>
+          <h3 class="implication-title">優先事項に基づくメッセージング</h3>
+          <p class="implication-text">
+            企業が最も重視する要素によって評価基準が大きく異なるため、マーケティングコミュニケーションもセグメント別に
+            カスタマイズすべきです。コスト重視企業には「初期導入費用の安さ」（最高評価が21.5%と高い）、
+            リスク回避企業には「情報漏洩対策」（最高評価21.5%）など、各セグメントの核心的関心事に焦点を当てた
+            メッセージングが効果的です。同じ製品・サービスでもセグメント別に訴求ポイントを変えることで、
+            より高い共感と理解を得られる可能性があります。特に重視点の一貫性が高いため、
+            優先事項に沿った特化型の提案が有効です。
+          </p>
+        </div>
+        
+        <div class="implication-card">
+          <div class="implication-icon">⚖️</div>
+          <h3 class="implication-title">優先事項のバランス調整</h3>
+          <p class="implication-text">
+            各企業は特定の要素を重視する傾向がありますが、他の要素の重要性を認識させるアプローチも効果的です。例えば、
+            コスト重視企業に対しては、セキュリティ対策の不足による潜在的損失リスクを具体的に示し、
+            適切なバランスを提案することが重要です。同様に、リスク回避企業に対しても、
+            過度なセキュリティ強化によるユーザビリティやコストへの影響を示し、
+            最適なバランスポイントを提案することで、より総合的な価値提案が可能になります。
+          </p>
+        </div>
+        
+        <div class="implication-card">
+          <div class="implication-icon">📱</div>
+          <h3 class="implication-title">働き方変革への対応</h3>
+          <p class="implication-text">
+            大企業ほどモバイル活用とノートPC中心の環境構築が進んでいることから、働き方改革やテレワーク対応、
+            BCP対策としてのモビリティ重視の傾向が顕著です。今後、中小企業にもこの変化が波及すると予想されるため、
+            コスト効率の高いモバイルソリューションの開発と、段階的な移行を支援するサービス提供が重要になります。
+            特に小規模企業向けには、投資対効果が見えやすい「必要最小限の機能と安全性を備えたエントリーモデル」の提供が
+            効果的と考えられます。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 結論セクション -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <h2>結論：企業規模とニーズに応じた最適なIT戦略の構築</h2>
+      </div>
+      <p>
+        本分析により、従業員用PC導入における意思決定プロセスは企業規模によって大きく異なることが明らかになりました。
+        小規模企業は<strong>コスト重視</strong>の傾向が強く、デスクトップ中心(33.5%)の固定的な環境が多い一方、
+        中規模企業は<strong>パフォーマンス</strong>と段階的な移行を示唆するデスクトップ＋ノート併用(33.7%)が最多となり、
+        大企業は<strong>モバイル活用とセキュリティ対策</strong>を優先しています。
+      </p>
+      <p>
+        また、重視点セグメントごとの評価傾向を見ても、コスト要素やセキュリティ要素に対する評価がセグメントごとに
+        大きく分かれることがわかりました。これらの結果から、企業規模や重視点に合わせた差別化戦略の重要性が示唆されます。
+        特に国内の中小企業に対しては、予算制約と働き方改革・安全性の両立を図る提案が鍵となるでしょう。
+      </p>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p>企業PC導入戦略分析レポート © 2025</p>
+        <p class="sources">調査データ出典: 「割付（従業員規模）＆Q4DNA別 クロス表.pdf」</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
