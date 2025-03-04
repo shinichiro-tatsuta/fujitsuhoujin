@@ -1,521 +1,555 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>富士通 法人PC販売マーケティング戦略提案</title>
-  <style>
-    /* ベーシックリセット */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      line-height: 1.8;
-      background: #f9f9f9;
-      color: #333;
-      padding: 20px;
-    }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #fff;
-      padding: 40px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      border-radius: 5px;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 40px;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 20px;
-    }
-    header h1 {
-      font-size: 2.8em;
-      color: #00529B;
-      margin-bottom: 10px;
-    }
-    header p {
-      font-size: 1.1em;
-      color: #666;
-    }
-    section {
-      margin-bottom: 40px;
-    }
-    h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-      color: #00529B;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 10px;
-    }
-    h3 {
-      font-size: 1.5em;
-      margin-bottom: 15px;
-      color: #0073e6;
-      border-left: 4px solid #0073e6;
-      padding-left: 10px;
-    }
-    h4 {
-      font-size: 1.3em;
-      margin-top: 15px;
-      color: #0073e6;
-    }
-    p {
-      margin-bottom: 20px;
-      font-size: 1.05em;
-      text-align: justify;
-    }
-    ul {
-      margin-left: 20px;
-      margin-bottom: 20px;
-      font-size: 1.05em;
-    }
-    li {
-      margin-bottom: 10px;
-    }
-    /* 横棒グラフ用スタイル */
-    .chart-container {
-      margin: 30px 0;
-    }
-    .chart-title {
-      text-align: center;
-      font-weight: bold;
-      margin-bottom: 10px;
-      font-size: 1.2em;
-    }
-    .bar-chart {
-      width: 100%;
-      max-width: 600px;
-      margin: 0 auto 20px auto;
-    }
-    .bar {
-      height: 28px;
-      background: #0073e6;
-      margin-bottom: 8px;
-      border-radius: 4px;
-      position: relative;
-      color: #fff;
-      font-weight: bold;
-      font-size: 0.95em;
-      padding-right: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-    }
-    .bar span {
-      position: absolute;
-      left: 10px;
-      color: #fff;
-      font-weight: normal;
-    }
-    /* スタイル付きテーブル */
-    .styled-table {
-      border-collapse: collapse;
-      margin: 30px auto;
-      width: 100%;
-      max-width: 800px;
-      font-size: 1em;
-      border: 1px solid #ddd;
-    }
-    .styled-table th, .styled-table td {
-      padding: 12px 15px;
-      text-align: center;
-      border: 1px solid #ddd;
-    }
-    .styled-table th {
-      background-color: #00529B;
-      color: #fff;
-      font-size: 1.05em;
-    }
-    .styled-table tbody tr:nth-child(even) {
-      background-color: #f3f3f3;
-    }
-    /* フッター */
-    .footer {
-      text-align: center;
-      font-size: 0.9em;
-      color: #777;
-      border-top: 2px solid #ddd;
-      padding-top: 15px;
-      margin-top: 40px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>企業PC導入戦略分析レポート：企業規模別アプローチの最適化</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #2874a6;
+            --accent-color: #3498db;
+            --light-bg: #f8f9fa;
+            --dark-bg: #2c3e50;
+            --text-color: #333333;
+            --light-text: #ffffff;
+            --border-color: #e0e0e0;
+            --chart-color-1: #3498db;
+            --chart-color-2: #2ecc71;
+            --chart-color-3: #f1c40f;
+            --chart-color-4: #e74c3c;
+        }
+        /* 基本リセット */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 30px 0;
+            position: relative;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 300;
+            line-height: 1.2;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 80%;
+            font-weight: 300;
+            margin: 0 auto;
+        }
+        section {
+            padding: 50px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .section-header {
+            margin-bottom: 30px;
+            position: relative;
+        }
+        h2 {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin: 30px 0 15px;
+            color: var(--secondary-color);
+        }
+        h4 {
+            font-size: 1.3rem;
+            margin-top: 15px;
+            color: var(--secondary-color);
+        }
+        p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        /* グラフスタイル */
+        .chart-container {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        .chart-title {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        .bar-chart {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+        }
+        .bar {
+            height: 35px;
+            background: #0073e6;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            position: relative;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1em;
+            padding-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .bar span {
+            position: absolute;
+            left: 10px;
+            color: #fff;
+            font-weight: normal;
+        }
+        /* テーブルスタイル */
+        .styled-table {
+            border-collapse: collapse;
+            margin: 30px auto;
+            width: 100%;
+            max-width: 800px;
+            font-size: 1em;
+            border: 1px solid var(--border-color);
+        }
+        .styled-table th, .styled-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+        .styled-table th {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            font-size: 1.05em;
+        }
+        .styled-table tbody tr:nth-child(even) {
+            background-color: #f3f3f3;
+        }
+        /* インサイトカード */
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        .insight-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        .insight-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--accent-color);
+        }
+        .insight-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        .insight-content {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .highlight {
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+        /* 結論・付録など */
+        .key-finding {
+            background-color: #f0f8ff;
+            border-left: 4px solid var(--accent-color);
+            padding: 15px 20px;
+            margin: 25px 0;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        .detailed-analysis {
+            margin: 25px 0;
+            line-height: 1.7;
+        }
+        .insights-grid .insight-card {
+            min-height: 180px;
+        }
+        footer {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .sources {
+            margin-top: 20px;
+            font-style: italic;
+            opacity: 0.8;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .chart {
+                height: 300px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
     <header>
-      <h1>富士通 法人PC販売マーケティング戦略提案</h1>
-      <p>調査データに基づいた多角的戦略のご提案</p>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>企業PC導入戦略分析レポート</h1>
+                    <p class="subtitle">企業規模別のニーズと戦略的示唆に基づいた最適アプローチ</p>
+                </div>
+                <div class="logo">
+                    Strategic<br>PC<br>Insights
+                </div>
+            </div>
+        </div>
     </header>
     
-    <!-- 分析レポートセクション -->
-    <section id="analysis">
-      <h2>従業員規模と主要重視点によるクロス集計結果の分析</h2>
-      <p>
-        アップロードいただいたクロス集計結果（従業員規模別 × Q4重視点別）をもとに、企業規模による傾向および重視点セグメントごとの差異を整理しました。以下に、各項目のデータを抽出し、コードで作成した横棒グラフやスタイル付きテーブルで可視化しています。
-      </p>
-      
-      <h3>企業規模別の主要重視点（Q4）の分布</h3>
-      <p>
-        Q4では「従業員用PC導入時に最も重視する要素」を、コスト、運用効率、パフォーマンス・成果、リスク回避の4つに区分しました。例として、従業員30～100人規模の企業の場合の割合は以下のとおりです。
-      </p>
-      <div class="chart-container">
-        <div class="chart-title">【従業員30～100人規模】PC導入時の最重視要素</div>
-        <div class="bar-chart">
-          <div class="bar" style="width: 39.3%;">
-            <span>コスト：39.3%</span>
-          </div>
-          <div class="bar" style="width: 31.4%; background: #e67e22;">
-            <span>パフォーマンス：31.4%</span>
-          </div>
-          <div class="bar" style="width: 14.6%; background: #27ae60;">
-            <span>リスク回避：14.6%</span>
-          </div>
-          <div class="bar" style="width: 14.7%; background: #8e44ad;">
-            <span>運用効率：14.7%</span>
-          </div>
+    <!-- エグゼクティブサマリー -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>エグゼクティブサマリー</h2>
+                <p class="section-description">本レポートでは、企業規模に応じた従業員用PC導入時の重視点の違いと、それに基づく最適なIT資産管理戦略の示唆をまとめています。小規模企業から大企業まで、各企業の特性に合わせた戦略的アプローチが求められています。</p>
+            </div>
+            <div class="key-finding">
+                <p>企業規模により、PC導入時の最重視要素、調達チャネル、PC形態の選択に大きな違いが見られます。特に、小規模企業は<strong>コスト重視</strong>、大企業は<strong>リスク回避・モバイル性</strong>を重視する傾向が顕著です。これらの違いを理解することが、最適なIT投資戦略の構築に不可欠です。</p>
+            </div>
         </div>
-      </div>
-      <p>
-        このグラフから、小規模企業は「コスト」を特に重視している一方、大企業では「リスク回避」の重視が相対的に高くなっていることがわかります。また、中堅企業では「パフォーマンス・成果」が最も注目されています。
-      </p>
-      
-      <h3>従業員規模別のパソコン調達経路の違い</h3>
-      <p>
-        次に、PCの調達経路に関する設問結果を、企業規模別に整理した例です。主要なチャネルは以下のとおりです。
-      </p>
-      <table class="styled-table">
-        <thead>
-          <tr>
-            <th>調達経路</th>
-            <th>小規模（30～100人）</th>
-            <th>中堅（100～1000人）</th>
-            <th>大企業（1000人以上）</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>メーカー直販</td>
-            <td>24.3%</td>
-            <td>40.5%</td>
-            <td>46.6%</td>
-          </tr>
-          <tr>
-            <td>その他</td>
-            <td>43.2%</td>
-            <td>26.5%</td>
-            <td>23.0%</td>
-          </tr>
-          <tr>
-            <td>リース・レンタル</td>
-            <td>11.2%</td>
-            <td>15.5%</td>
-            <td>23.6%</td>
-          </tr>
-        </tbody>
-      </table>
-      <p>
-        表からは、小規模企業は「その他」の調達経路に依存する傾向が強いのに対し、大企業はメーカー直販およびリース・レンタル経由の利用が目立ちます。
-      </p>
-      
-      <h3>従業員規模別のPC形態利用状況の違い</h3>
-      <p>
-        次に、PCの利用形態（デスクトップ中心、据え置きノート型中心、軽量モバイル中心）の回答割合を、企業規模別に比較した例です。
-      </p>
-      <table class="styled-table">
-        <thead>
-          <tr>
-            <th>企業規模</th>
-            <th>デスクトップ中心</th>
-            <th>据え置きノート型中心</th>
-            <th>軽量モバイル中心</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>小規模（30～100人）</td>
-            <td>33.5%</td>
-            <td>24.3%</td>
-            <td>4.4%</td>
-          </tr>
-          <tr>
-            <td>中堅（100～1000人）</td>
-            <td>19.7%</td>
-            <td>21.4%</td>
-            <td>11.7%</td>
-          </tr>
-          <tr>
-            <td>大企業（1000人以上）</td>
-            <td>14.2%</td>
-            <td>30.4%</td>
-            <td>12.6%</td>
-          </tr>
-        </tbody>
-      </table>
-      <p>
-        この表より、小規模企業はデスクトップ中心、大企業はノート型および軽量モバイル中心へと利用形態がシフトしていることが見て取れます。
-      </p>
-      
-      <h3>重視点セグメント別の評価傾向</h3>
-      <p>
-        Q3では各要素を「0（全く重視しない）～10（非常に重視する）」で評価しました。例えば、初期導入費用（コスト要素）の「10点」を選んだ割合は全体で13.5%ですが、コスト重視層では21.5%に上昇しています。リスク回避においても、該当層で高い評価が見られます。
-      </p>
-      <div class="chart-container">
-        <div class="chart-title">【評価スコア（10点）割合の例】</div>
-        <div class="bar-chart">
-          <div class="bar" style="width: 21.5%; background: #e67e22;">
-            <span>コスト重視層：21.5%</span>
-          </div>
-          <div class="bar" style="width: 13.3%; background: #27ae60;">
-            <span>リスク回避層：13.3%</span>
-          </div>
+    </section>
+    
+    <!-- 分析セクション -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>従業員規模別のPC導入時の重視要素</h2>
+            </div>
+            <div class="chart-container">
+                <div class="chart-title">【従業員30～100人規模】PC導入時の最重視要素</div>
+                <div class="bar-chart">
+                    <div class="bar" style="width: 39.3%;">
+                        <span>コスト：39.3%</span>
+                    </div>
+                    <div class="bar" style="width: 31.4%; background: #e67e22;">
+                        <span>パフォーマンス：31.4%</span>
+                    </div>
+                    <div class="bar" style="width: 14.6%; background: #27ae60;">
+                        <span>リスク回避：14.6%</span>
+                    </div>
+                    <div class="bar" style="width: 14.7%; background: #8e44ad;">
+                        <span>運用効率：14.7%</span>
+                    </div>
+                </div>
+                <p>このグラフから、小規模企業は「コスト」を特に重視している一方、大企業では「リスク回避」の重視が高い傾向がうかがえます。</p>
+            </div>
+            
+            <div class="chart-container">
+                <div class="chart-title">企業規模別：PC形態利用状況の比較</div>
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>企業規模</th>
+                            <th>デスクトップ中心</th>
+                            <th>デスクトップ＋据置ノート併用</th>
+                            <th>据置ノート中心</th>
+                            <th>デスクトップ＋軽量モバイル</th>
+                            <th>軽量モバイル中心</th>
+                            <th>その他</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>30～100人未満<br>(小規模)</td>
+                            <td><strong>33.5%</strong></td>
+                            <td>32.5%</td>
+                            <td>24.3%</td>
+                            <td>5.3%</td>
+                            <td>4.4%</td>
+                            <td>0.0%</td>
+                        </tr>
+                        <tr>
+                            <td>100～1000人未満<br>(中規模)</td>
+                            <td>19.7%</td>
+                            <td><strong>33.7%</strong></td>
+                            <td>21.4%</td>
+                            <td>13.3%</td>
+                            <td>11.7%</td>
+                            <td>0.3%</td>
+                        </tr>
+                        <tr>
+                            <td>1000人以上<br>(大企業)</td>
+                            <td>14.2%</td>
+                            <td>31.1%</td>
+                            <td><strong>30.4%</strong></td>
+                            <td>11.7%</td>
+                            <td>12.6%</td>
+                            <td>0.0%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="detailed-analysis">
+                    <p>中規模企業は両者の中間的な傾向を示しますが、注目すべきは「デスクトップと据置ノート型の併用」が<span class="highlight">33.7%と最も高い</span>点です。これは移行過程の企業が多いことを示唆しており、中規模企業では職種や役職に応じたPC形態の使い分け、または段階的な移行が進行中であると考えられます。</p>
+                    
+                    <p>「据置ノート中心」の環境も企業規模による差異が見られ、大企業（30.4%）が小規模企業（24.3%）よりも6ポイント高いです。据置ノートPCは、設置スペースの効率化や災害時の持ち出し、オフィスレイアウト変更への柔軟性などのメリットがある一方、単価が高いため、コスト制約の厳しい小規模企業では普及率が低いと推測されます。</p>
+                    
+                    <p>全体として、大企業は<span class="highlight">モバイル性・柔軟性を重視</span>し、小規模企業は<span class="highlight">コスト効率を重視</span>している傾向が明確です。これは働き方改革やテレワーク推進、BCP対策などの戦略的IT投資の違いも反映しています。</p>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
     
-    <!-- 戦略提案セクション -->
-    <section id="strategy">
-      <h2>富士通 法人PC販売マーケティング戦略の多角的最適化提案</h2>
-      
-      <h3>1. ターゲットセグメントの深掘り</h3>
-      <p>
-        調査データにより、企業のPC導入方針は「コスト重視」「運用効率重視」「パフォーマンス重視」「リスク回避」の4つのDNAに分類できます。以下に各セグメントの特徴と課題を示します。
-      </p>
-      <ul>
-        <li>
-          <strong>コスト重視:</strong> 中小企業に多く、初期費用やTCO削減を最優先。予算承認が厳しく、ROI試算が鍵となる。
-        </li>
-        <li>
-          <strong>運用効率重視:</strong> 情報システム部門主導の中堅以上企業に多く、故障率の低さ・保守体制の充実が求められる。人的リソース不足が課題。
-        </li>
-        <li>
-          <strong>パフォーマンス重視:</strong> DX推進や業務効率向上を狙い、高性能かつ最新モデルの導入が鍵。投資対効果の具体的数値提示が必要。
-        </li>
-        <li>
-          <strong>リスク回避:</strong> 主に大企業で、情報漏洩や不正アクセス防止など、厳格なセキュリティ基準が要求される。国内生産や迅速サポートが重要。
-        </li>
-      </ul>
-      
-      <h3>意思決定フローと重視ポイント</h3>
-      <p>
-        各セグメントにおけるPC導入の稟議フローは、財務、IT、ユーザー、セキュリティなど各部門の異なる視点が反映されます。たとえば、コスト重視層は価格削減、運用効率層は保守・サポート、パフォーマンス重視層は生産性向上、リスク回避層は安全基準遵守が決め手となります。
-      </p>
-      
-      <h3>2. 販売パートナー戦略の補強</h3>
-      <p>
-        販売パートナー向けには、インセンティブ制度や販売支援ツール、認定プログラムを整備。さらに、企業DNA別のセールスシナリオを提供することで、パートナーが自社の強みと富士通PCの特長を組み合わせた提案を行える体制を構築します。
-      </p>
-      
-      <h3>3. マーケティング施策の具体化</h3>
-      <p>
-        オンライン（デジタル広告、SEO、SNS、ABM）とオフライン（セミナー、展示会、ウェビナー、イベント）の両面から、リード獲得とコンバージョンを最大化します。各ターゲットセグメントに合わせたチャネル選定がポイントです。
-      </p>
-      
-      <h3>4. データ活用と調査結果の反映</h3>
-      <p>
-        調査データ（読売広告社 YOMIKO 提供）により、各セグメントの購買傾向や評価基準を定量的に把握し、課題に対する具体的な解決策（ROIシミュレーション、実証データ、他社事例）を提供します。
-      </p>
-      
-      <h3>5. 競合分析の視点</h3>
-      <p>
-        NEC（レノボ）、Dynabook、HP、Dellなど主要競合と比較し、富士通は国内実績、「Made in Japan」の信頼性、充実したサポート体制を強みとして差別化戦略を策定します。
-      </p>
-      
-      <h3>6. KPIとPDCAサイクルの運用</h3>
-      <p>
-        リード獲得、転換率、受注率、パートナー経由売上、コンテンツエンゲージメント、Web/SNS指標、マーケティングROIなどをKPIに設定し、Plan・Do・Check・Actの各フェーズで継続的な改善を行います。
-      </p>
+    <!-- 販売シナリオ例セクション：更新された内容を反映 -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>戦略的示唆と販売シナリオ例</h2>
+                <p class="section-description">以下では、企業DNA（コスト重視／運用効率重視／パフォーマンス重視／リスク回避）ごとに、抽象的なシナリオコンセプトと具体的なアプローチ手順・提案内容を組み合わせた「販売シナリオ例」を提示します。これにより、パートナーが顧客に提案する際のストーリーテリングと具体的なアクションプランが明確になります。</p>
+            </div>
+            
+            <!-- コスト重視企業向けシナリオ -->
+            <h3>1. コスト重視企業向け: 「価値創造の逆転劇」シナリオ</h3>
+            <h4>(A) シナリオコンセプト</h4>
+            <ul>
+                <li>「ただ安いだけでなく、“逆転発想”のコスト戦略で会社を変える」</li>
+                <li>老舗メーカーが、過去の安価なPC大量導入でトラブル続出し、結果的に高い補修費や業務停止リスクに直面。</li>
+                <li>富士通パートナーは「長期的に最もコストが下がるPC」を提案。高い品質＆メンテナンス性が、ダウンタイムや追加投資を最小化する。</li>
+            </ul>
+            <h4>(B) 具体的なアプローチ手順</h4>
+            <ol>
+                <li>
+                    <strong>パートナー事前準備</strong>
+                    <ul>
+                        <li>顧客ヒアリングで予算枠、更新タイミング、故障率・保守費用を把握</li>
+                        <li>TCO試算ツールで5年間の総コスト比較を実施（安価なノーブランドPC vs. 富士通PC）</li>
+                        <li>リースやDaaS（月額サブスク）プランを整理し、数字で提案できるように準備</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>第一接触</strong>
+                    <ul>
+                        <li>「現状のPCは何年使っていますか？ 故障対応でどれだけのコストがかかっているか、ご存知ですか？」と現状課題を提示</li>
+                        <li>「リースモデルなら初期費用ゼロ、富士通PCなら故障率が低く、5年で総支出が20%低減」と具体的数値を提示</li>
+                        <li>「安いだけではなく、長期的にお得なPC導入」であることを強調</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>稟議サポート</strong>
+                    <ul>
+                        <li>ROI計算資料で費用対効果を明示（他社との比較も含む）</li>
+                        <li>リース月額シミュレーションを提示し、キャッシュフロー改善を訴求</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>クロージング</strong>
+                    <ul>
+                        <li>「安物買いのツケを断ち切る」ストーリーで、アフターサポートまで含めたトータルコスト優位を再強調</li>
+                        <li>具体的な導入台数・見積もり、限定キャンペーンで発注を促す</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <!-- 運用効率重視企業向けシナリオ -->
+            <h3>2. 運用効率重視企業向け: 「ノイジー情シスを救え！カイゼン劇場」シナリオ</h3>
+            <h4>(A) シナリオコンセプト</h4>
+            <ul>
+                <li>「IT部門が雑務の地獄から解放され、本来の付加価値業務に集中できる」</li>
+                <li>300～500名規模の中堅企業で、情シス担当が少数ながらPC管理や故障対応に追われている現状に焦点。</li>
+                <li>富士通PCの低故障率、充実した保守体制、キッティング代行により、情シス作業を大幅に削減する提案。</li>
+            </ul>
+            <h4>(B) 具体的なアプローチ手順</h4>
+            <ol>
+                <li>
+                    <strong>パートナー事前準備</strong>
+                    <ul>
+                        <li>現状のPC故障発生率、セットアップ時間、問い合わせ件数などをヒアリング</li>
+                        <li>「情シス働き方改革」資料と富士通PC支援ツールを組み合わせたケーススタディ作成</li>
+                        <li>他社製品との比較データを用いて、運用工数削減効果を試算</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>第一接触</strong>
+                    <ul>
+                        <li>「御社の情シスは、日々のPC管理で大変な負担を感じていませんか？」と現状を提起</li>
+                        <li>「富士通PC＋キッティングサービスで、年間○○時間の作業工数が削減可能」と具体的な数字を提示</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>稟議サポート</strong>
+                    <ul>
+                        <li>運用コスト削減ROIを具体的な比較データで示す</li>
+                        <li>大企業での迅速対応実績を根拠に、信頼性の高さを訴求</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>クロージング</strong>
+                    <ul>
+                        <li>情シスの負担軽減と、IT部門の本来の業務へのシフトを強調</li>
+                        <li>延長保守やオンサイト保守プランなど、付加価値を具体的に提示</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <!-- 成果重視企業向けシナリオ -->
+            <h3>3. 成果（パフォーマンス）重視企業向け: 「未来創造ファーストインパクト」シナリオ</h3>
+            <h4>(A) シナリオコンセプト</h4>
+            <ul>
+                <li>「最新テクノロジーを武器に、ビジネスの未来を切り拓く」</li>
+                <li>急成長中のIT企業が、社員の生産性向上と業務変革を実現するために、従来のPCからの刷新を模索。</li>
+                <li>富士通PCの高性能モデル、モバイル性、クラウド連携が、DXの最速エンジンとなることを提案。</li>
+            </ul>
+            <h4>(B) 具体的なアプローチ手順</h4>
+            <ol>
+                <li>
+                    <strong>パートナー事前準備</strong>
+                    <ul>
+                        <li>成功事例（DX推進、テレワーク改善）の収集</li>
+                        <li>最新モデルの実機デモ環境を整備し、実際の操作感を体験可能に</li>
+                        <li>ROIシミュレーションで、生産性向上による具体的効果を定量化</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>第一接触</strong>
+                    <ul>
+                        <li>「御社のリモートワーク環境、最新PCで劇的に変わるとしたら？」と未来ビジョンを提示</li>
+                        <li>高機能モデルの特長や導入後の業務効率向上効果を、具体的な数字で示す</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>稟議サポート</strong>
+                    <ul>
+                        <li>経営層向けに、プロジェクト納期短縮や売上増加効果のシミュレーション資料を用意</li>
+                        <li>試験導入（PoC）のオファーで実際の効果測定を促す</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>クロージング</strong>
+                    <ul>
+                        <li>未来ビジョンを再描写し、「最初のインパクト」を強調、限定オファーで早期導入を促す</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <!-- リスク回避企業向けシナリオ -->
+            <h3>4. リスク回避企業向け: 「企業守護神」シナリオ</h3>
+            <h4>(A) シナリオコンセプト</h4>
+            <ul>
+                <li>「情報漏洩リスクを極小化し、企業の守護神となるPC」</li>
+                <li>金融、官公庁、医療など、厳格なセキュリティが求められる現場で、富士通PCの多層防御と国内サポート体制が鍵となる。</li>
+            </ul>
+            <h4>(B) 具体的なアプローチ手順</h4>
+            <ol>
+                <li>
+                    <strong>パートナー事前準備</strong>
+                    <ul>
+                        <li>顧客のセキュリティ要件（認証方式、暗号化基準など）を詳細にヒアリング</li>
+                        <li>富士通PCの独自セキュリティ機能（PalmSecure、TPM2.0、BIOS保護など）を分かりやすく資料化</li>
+                        <li>国内サポート体制や導入実績をまとめた事例集を作成</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>第一接触</strong>
+                    <ul>
+                        <li>「近年の情報漏洩事件をご存知ですか？ 富士通PCは安全性において実績があり、万一の際も迅速に対応可能です」と安心感を提供</li>
+                        <li>具体的なセキュリティ機能と、遠隔ロック・データ消去対応を説明</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>稟議サポート</strong>
+                    <ul>
+                        <li>製品のセキュリティ仕様書や第三者認証資料を提示し、全社的なリスク回避効果を証明</li>
+                        <li>「情報漏洩が発生すれば莫大な損害に」とリスクの具体性を訴え、投資価値を強調</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>クロージング</strong>
+                    <ul>
+                        <li>「企業守護神」としての富士通PCを強調し、長期保守契約・国内サポート体制を再確認</li>
+                        <li>「守りが強いからこそ攻めの経営が可能」と前向きなメッセージで締めくくる</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <h3>シナリオ例のまとめ</h3>
+            <ul>
+                <li><strong>抽象度と具体性の融合:</strong> 各シナリオは、企業の価値観に寄り添った抽象的なコンセプトと、具体的な数字・ツール・事例を組み合わせています。</li>
+                <li><strong>パートナーによるカスタマイズ:</strong> 各シナリオは、パートナーの業界知見や独自の強みを加えることで、さらに魅力的な提案に昇華されます。</li>
+                <li><strong>ツールキットの整備:</strong> DNA別のプレゼン資料、ROI計算シート、事例集、FAQ、想定問答集を用意し、パートナーが容易にカスタマイズできる体制が重要です。</li>
+                <li><strong>ハイブリッド対応:</strong> 複数のDNAが混在するケースに対しては、各キーマンの意見を反映した複合シナリオを提案し、全体最適を図ります。</li>
+            </ul>
+            <p>これらのシナリオ例は一例ですが、パートナーが顧客に提案する際、ストーリーテリングと具体的なアクションプランを両立させることで、「まさに我が社のニーズにピッタリ！」と感じさせる提案を実現するための指針となります。</p>
+        </div>
     </section>
     
-    <!-- 新規追加：販売シナリオ例 -->
-    <section id="scenario">
-      <h2>7. 販売シナリオ例</h2>
-      <p>
-        以下では、企業DNA（コスト重視／運用効率重視／成果（パフォーマンス）重視／リスク回避）の各セグメントに対して、抽象的なシナリオコンセプトと具体的なアプローチ手順・提案内容を組み合わせた「販売シナリオ例」を提示します。いずれも、富士通の法人PCをパートナーが提案するという構図を念頭に置いており、パートナーが「売る気」を出しやすく、かつエンド顧客に刺さるシナリオとなっています。
-      </p>
-      
-      <h3>1. コスト重視企業向け</h3>
-      <h4>(A) シナリオコンセプト</h4>
-      <ul>
-        <li>「支出を最小限に抑えながら、必要十分な性能を確保したい」</li>
-        <li>予算に厳しい中堅・中小企業が主人公。昨今の原価高騰や経営環境の不透明さから、PC導入の稟議では“安く済むか”が最大の関心事。</li>
-        <li>富士通PCの「トータルコスト優位（運用・保守・延命利用等）」を切り口に、「初期費用を抑えつつ長期的にお得」なストーリーを展開。</li>
-      </ul>
-      <h4>(B) 具体的なアプローチ手順</h4>
-      <ol>
-        <li>
-          <strong>パートナー事前準備</strong>
-          <ul>
-            <li>顧客ヒアリングで予算枠、更新タイミング、故障率や保守費用を把握</li>
-            <li>TCO試算ツールを用いた「5年間総コスト」のシミュレーション資料作成</li>
-            <li>リース・DaaSオプションやキャンペーン情報を数値ベースで整理</li>
-          </ul>
-        </li>
-        <li>
-          <strong>第一接触（提案ストーリー）</strong>
-          <ul>
-            <li>「現状のPCは何年使っていますか？ 故障対応にかかる費用や工数を見直しませんか？」と問いかけ、現場の負担を顕在化</li>
-            <li>「リースモデルなら初期費用を大幅に削減、富士通PCの低故障率ならランニングコストも抑えられます」と具体的な数値提示</li>
-            <li>「長期的に見てコストが下がる」ことを強調</li>
-          </ul>
-        </li>
-        <li>
-          <strong>稟議サポート</strong>
-          <ul>
-            <li>ROI計算資料で費用対効果を明示（他社製品との比較含む）</li>
-            <li>リース月額シミュレーションを提示し、キャッシュフロー改善を訴求</li>
-          </ul>
-        </li>
-        <li>
-          <strong>クロージング</strong>
-          <ul>
-            <li>「アフターサポートまで含めたトータルコスト優位」を再度強調し、具体的な保守実績を提示</li>
-            <li>「予算内で○台導入可能」と具体的な見積もりやキャンペーンオファーを提示</li>
-          </ul>
-        </li>
-      </ol>
-      
-      <h3>2. 運用効率重視企業向け</h3>
-      <h4>(A) シナリオコンセプト</h4>
-      <ul>
-        <li>「情シスの負担を軽減し、本来のIT戦略に専念できる環境を実現したい」</li>
-        <li>少数の情シス担当者が大量のPC管理に追われている現状を背景に、富士通PCの低故障率と充実した保守体制、キッティングやクラウド管理ツールを提案。</li>
-      </ul>
-      <h4>(B) 具体的なアプローチ手順</h4>
-      <ol>
-        <li>
-          <strong>パートナー事前準備</strong>
-          <ul>
-            <li>運用負荷（故障発生率、セットアップ時間、問い合わせ件数など）のヒアリング</li>
-            <li>「情シス働き方改革」資料と、富士通PCの支援ツール・クラウド管理ツールを組み合わせたケーススタディ作成</li>
-            <li>他社製品との比較データを用いて、運用コスト削減効果の試算</li>
-          </ul>
-        </li>
-        <li>
-          <strong>第一接触（提案ストーリー）</strong>
-          <ul>
-            <li>情シス担当者に対して「日々の初期設定や故障対応に追われていませんか？」と現状の問題点を提起</li>
-            <li>「富士通PCなら故障率が低く、サポート体制が充実しているため、年間○○時間の工数削減が可能です」と具体的数値で示す</li>
-          </ul>
-        </li>
-        <li>
-          <strong>稟議サポート</strong>
-          <ul>
-            <li>運用コスト削減のROIを明示し、具体的な比較データを提示</li>
-            <li>大企業での迅速対応実績を根拠として、信頼性の高さを訴求</li>
-          </ul>
-        </li>
-        <li>
-          <strong>クロージング</strong>
-          <ul>
-            <li>情シスの業務負担軽減と、新規ITプロジェクトへのシフトを強調し、安心感を与える</li>
-            <li>延長保守やオンサイト保守プランの付加価値を提示</li>
-          </ul>
-        </li>
-      </ol>
-      
-      <h3>3. 成果（パフォーマンス）重視企業向け</h3>
-      <h4>(A) シナリオコンセプト</h4>
-      <ul>
-        <li>「最新PCでDX推進と生産性向上を実現したい」</li>
-        <li>攻めのIT投資を行う企業が、価格よりも生産性や業務成果を重視する。富士通PCの高性能モデルとモバイル性、クラウド連携を軸に、新たな働き方を提案。</li>
-      </ul>
-      <h4>(B) 具体的なアプローチ手順</h4>
-      <ol>
-        <li>
-          <strong>パートナー事前準備</strong>
-          <ul>
-            <li>成功事例（DX推進、テレワーク環境改善）の収集</li>
-            <li>最新モデルの実機デモ準備と、触って体感できる環境の整備</li>
-            <li>ROIシミュレーションによる生産性向上の定量的効果提示</li>
-          </ul>
-        </li>
-        <li>
-          <strong>第一接触（提案ストーリー）</strong>
-          <ul>
-            <li>「御社のリモートワーク環境、最新PCで大幅に改善できるとしたら？」と未来ビジョンを提示</li>
-            <li>具体的な高機能モデルの特長や、導入後の生産性向上効果を数字で示す</li>
-          </ul>
-        </li>
-        <li>
-          <strong>稟議サポート</strong>
-          <ul>
-            <li>事業部長・経営層向けに、プロジェクト納期短縮や売上増加のシミュレーション資料を用意</li>
-            <li>試験導入（PoC）のオファーを行い、実際の効果測定を促す</li>
-          </ul>
-        </li>
-        <li>
-          <strong>クロージング</strong>
-          <ul>
-            <li>「新しい働き方」を具現化する未来ビジョンを再描写し、限定オファーで早期導入を促す</li>
-          </ul>
-        </li>
-      </ol>
-      
-      <h3>4. リスク回避企業向け</h3>
-      <h4>(A) シナリオコンセプト</h4>
-      <ul>
-        <li>「情報漏洩やトラブルは絶対に避けたい。多少のコストは許容する」</li>
-        <li>官公庁や金融、大手企業など、厳格なセキュリティ基準が求められる現場に、富士通PCの独自セキュリティ機能と迅速な国内サポートを提案。</li>
-      </ul>
-      <h4>(B) 具体的なアプローチ手順</h4>
-      <ol>
-        <li>
-          <strong>パートナー事前準備</strong>
-          <ul>
-            <li>顧客のセキュリティ要件（認証方式、暗号化基準など）を詳細にヒアリング</li>
-            <li>富士通PCの独自セキュリティ機能（PalmSecure、TPM2.0、BIOS保護）を資料化</li>
-            <li>国内サポート体制や過去の事例をまとめた実績資料の作成</li>
-          </ul>
-        </li>
-        <li>
-          <strong>第一接触（提案ストーリー）</strong>
-          <ul>
-            <li>「近年の情報漏洩事件をご存知ですか？ 富士通PCは官公庁・金融で多数採用される安全性を実証済みです」と安心感を提示</li>
-            <li>具体的なセキュリティ機能や、紛失時の迅速な遠隔ロック対応を説明</li>
-          </ul>
-        </li>
-        <li>
-          <strong>稟議サポート</strong>
-          <ul>
-            <li>製品のセキュリティ仕様書や第三者認証資料を提示し、全社的なリスク回避効果を証明</li>
-            <li>「万一の事故でも、富士通PCなら迅速対応で被害を最小限に」と、保険的な側面をアピール</li>
-          </ul>
-        </li>
-        <li>
-          <strong>クロージング</strong>
-          <ul>
-            <li>「安全は企業の信用そのものです。富士通PCでリスクを徹底的に排除しましょう」と最終説得</li>
-            <li>長期保守契約と、国内サポート体制を強調し、導入への決断を促す</li>
-          </ul>
-        </li>
-      </ol>
-      
-      <h3>シナリオ例のまとめ</h3>
-      <ul>
-        <li>
-          <strong>シナリオの抽象度と具体性の融合:</strong> 企業の価値観（DNA）に寄り添いつつ、抽象的なコンセプトと具体的な数字やツール、事例を組み合わせる。
-        </li>
-        <li>
-          <strong>パートナーによるカスタマイズ:</strong> 各シナリオは、パートナー自社の強みを加えた形で提案されるべき。例えば、業界特化の知見や、独自の付加価値と組み合わせる。
-        </li>
-        <li>
-          <strong>ツールキットの準備:</strong> DNA別のプレゼン資料、ROI計算シート、事例集、FAQ、想定問答集などをパートナーポータルで整備し、定期的にアップデートする。
-        </li>
-        <li>
-          <strong>ハイブリッドケースの対応:</strong> 複数のDNAが混在するケースに対しては、各キーマンの意見を反映した複合的なシナリオを提案し、全体最適を図る。
-        </li>
-      </ul>
-      <p>
-        これらのシナリオ例はあくまで一例ですが、パートナーが顧客に提案する際のストーリーテリングと具体的アクションの両面を兼ね備え、最終的に「まさにうちのニーズにピッタリだ！」とエンド顧客に感じさせる提案の実現を目指します。
-      </p>
+    <!-- 結論セクション -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>結論：企業規模とニーズに応じた最適なIT戦略の構築</h2>
+            </div>
+            <div class="conclusion-text">
+                <p>本分析により、従業員用PC導入における意思決定プロセスは企業規模によって大きく異なることが明らかになりました。小規模企業は<strong>コスト重視</strong>(39.3%)の傾向が強く、デスクトップ中心(33.5%)の環境構築が顕著です。一方、中堅企業は<strong>パフォーマンス重視</strong>(31.4%)で、段階的な移行を示唆するデスクトップ＋据置ノート併用(33.7%)が最多となっています。大企業では<strong>モバイル性・リスク回避</strong>が重視され、メーカー直販やリース方式が主流です。</p>
+                
+                <p>これらの結果は、企業のIT投資戦略において一律のアプローチではなく、規模や重視する要素に合わせた差別化戦略が必要であることを示唆しています。特に、中小企業に対しては、コスト効率と働き方改革、セキュリティのバランスを取った提案が鍵となります。</p>
+            </div>
+        </div>
     </section>
     
-    <div class="footer">
-      <p>&copy; 2025 富士通法人PC販売マーケティング戦略提案</p>
-    </div>
-  </div>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>企業PC導入戦略分析レポート © 2025</p>
+                <p class="sources">調査データ出典: 「割付（従業員規模）＆Q4DNA別 クロス表.xlsx」</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
